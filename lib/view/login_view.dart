@@ -1,3 +1,4 @@
+import 'package:cs1635_dish_it_out_app/view/signup_view.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
@@ -103,7 +104,9 @@ class _MyLoginState extends State<LoginView> {
                    'Sign up',
                    style: TextStyle(decoration: TextDecoration.underline, color: Colors.blue),
                  ),
-                 onTap: (){},
+                 onTap: (){
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => SignupView()));
+                 },
                ),
              ],
            ),
