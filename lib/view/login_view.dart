@@ -32,6 +32,7 @@ class _MyLoginState extends State<LoginView> {
            Text(
              'Login',
              style: TextStyle(
+               fontFamily: 'Poppins',
                fontSize: 35,
                color: Colors.teal,
                fontWeight: FontWeight.bold
@@ -53,8 +54,10 @@ class _MyLoginState extends State<LoginView> {
                        prefixIcon: Icon(Icons.person),
                        border: OutlineInputBorder(),
                      ),
+                     style: TextStyle(
+                       fontFamily: 'Poppins',
+                     ),
                      onChanged: (String enteredUsername){
-
                      },
                      validator: (enteredUsername){
                        return enteredUsername!.isEmpty ? 'Please enter username' : null;
@@ -81,7 +84,9 @@ class _MyLoginState extends State<LoginView> {
                        prefixIcon: Icon(Icons.lock),
                        border: OutlineInputBorder(),
                      ),
-
+                     style: TextStyle(
+                       fontFamily: 'Poppins',
+                     ),
                      validator: (value){
                        return value!.isEmpty ? 'Please enter password' : null;
                      },
@@ -96,7 +101,10 @@ class _MyLoginState extends State<LoginView> {
 
                        }
                      },
-                     child: Text('Login'),
+                     child: Text('Login',
+                         style: TextStyle(
+                           fontFamily: 'Poppins',
+                     )),
                      color: Colors.teal,
                      textColor: Colors.white,
                    ),
@@ -112,7 +120,7 @@ class _MyLoginState extends State<LoginView> {
                InkWell(
                  child: Text(
                    'Sign up',
-                   style: TextStyle(decoration: TextDecoration.underline, color: Colors.blue),
+                   style: TextStyle(fontFamily: 'Poppins', decoration: TextDecoration.underline, color: Colors.blue),
                  ),
                  onTap: (){
                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignupView()));
