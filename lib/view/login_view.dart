@@ -19,6 +19,8 @@ class _MyLoginState extends State<LoginView> {
 
   final _formKey = GlobalKey<FormState>();
 
+  var _isObscured = true;
+
   @override
   Widget build(BuildContext context){
     return MaterialApp(
@@ -62,18 +64,26 @@ class _MyLoginState extends State<LoginView> {
                    SizedBox(height: 50,),
 
                    TextFormField(
+                     obscureText: _isObscured,
                      keyboardType: TextInputType.text,
                      decoration: InputDecoration(
+                       suffixIcon: IconButton(
+                           padding: const EdgeInsetsDirectional.only(end: 12.0),
+                           icon: _isObscured ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off),
+                           onPressed: (){
+                             setState((){
+                               _isObscured = !_isObscured;
+                             });
+                           }
+                       ),
                        labelText: 'Password',
                        hintText: 'Enter password',
                        prefixIcon: Icon(Icons.lock),
                        border: OutlineInputBorder(),
                      ),
-                     onChanged: (String enteredPassword){
 
-                     },
-                     validator: (enteredPassword){
-                       return enteredPassword!.isEmpty ? 'Please enter password' : null;
+                     validator: (value){
+                       return value!.isEmpty ? 'Please enter password' : null;
                      },
                    ),
 
