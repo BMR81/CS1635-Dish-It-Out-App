@@ -1,5 +1,6 @@
 import 'package:cs1635_dish_it_out_app/view/signup_view.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key : key);
@@ -29,11 +30,17 @@ class _MyLoginState extends State<LoginView> {
          mainAxisAlignment: MainAxisAlignment.center,
          crossAxisAlignment: CrossAxisAlignment.center,
          children: [
+           Image.asset(
+             'assets/images/dioLogo.png',
+             height: 250,
+             width: 400,
+           ),
            Text(
              'Login',
              style: TextStyle(
-               fontSize: 35,
-               color: Colors.teal,
+               fontFamily: "Poppins",
+               fontSize: 40,
+               color: HexColor('#00abff'),
                fontWeight: FontWeight.bold
              ),
            ),
@@ -87,7 +94,7 @@ class _MyLoginState extends State<LoginView> {
                      },
                    ),
 
-                   SizedBox(height: 50,),
+                   SizedBox(height: 40,),
 
                    MaterialButton(
                      minWidth: double.infinity,
@@ -97,7 +104,7 @@ class _MyLoginState extends State<LoginView> {
                        }
                      },
                      child: Text('Login'),
-                     color: Colors.teal,
+                     color: HexColor('#00abff'),
                      textColor: Colors.white,
                    ),
                  ],

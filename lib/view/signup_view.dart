@@ -1,5 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class SignupView extends StatefulWidget {
   const SignupView({Key? key}) : super(key : key);
@@ -35,8 +36,9 @@ class _MySignupState extends State<SignupView> {
             Text(
               'Sign up',
               style: TextStyle(
-                  fontSize: 35,
-                  color: Colors.teal,
+                fontFamily: "Poppins",
+                  fontSize: 40,
+                  color: HexColor('#00abff'),
                   fontWeight: FontWeight.bold
               ),
             ),
@@ -162,7 +164,7 @@ class _MySignupState extends State<SignupView> {
                         }
                       },
                       child: Text('Next'),
-                      color: Colors.teal,
+                      color: HexColor('#00abff'),
                       textColor: Colors.white,
                     ),
                   ],
