@@ -1,6 +1,5 @@
 import 'package:cs1635_dish_it_out_app/view/signup_view.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key : key);
@@ -30,17 +29,12 @@ class _MyLoginState extends State<LoginView> {
          mainAxisAlignment: MainAxisAlignment.center,
          crossAxisAlignment: CrossAxisAlignment.center,
          children: [
-           Image.asset(
-             'assets/images/dioLogo.png',
-             height: 250,
-             width: 400,
-           ),
            Text(
              'Login',
              style: TextStyle(
-               fontFamily: "Poppins",
-               fontSize: 40,
-               color: HexColor('#00abff'),
+               fontFamily: 'Poppins',
+               fontSize: 35,
+               color: Colors.teal,
                fontWeight: FontWeight.bold
              ),
            ),
@@ -60,8 +54,10 @@ class _MyLoginState extends State<LoginView> {
                        prefixIcon: Icon(Icons.person),
                        border: OutlineInputBorder(),
                      ),
+                     style: TextStyle(
+                       fontFamily: 'Poppins',
+                     ),
                      onChanged: (String enteredUsername){
-
                      },
                      validator: (enteredUsername){
                        return enteredUsername!.isEmpty ? 'Please enter username' : null;
@@ -88,13 +84,15 @@ class _MyLoginState extends State<LoginView> {
                        prefixIcon: Icon(Icons.lock),
                        border: OutlineInputBorder(),
                      ),
-
+                     style: TextStyle(
+                       fontFamily: 'Poppins',
+                     ),
                      validator: (value){
                        return value!.isEmpty ? 'Please enter password' : null;
                      },
                    ),
 
-                   SizedBox(height: 40,),
+                   SizedBox(height: 50,),
 
                    MaterialButton(
                      minWidth: double.infinity,
@@ -103,8 +101,11 @@ class _MyLoginState extends State<LoginView> {
 
                        }
                      },
-                     child: Text('Login'),
-                     color: HexColor('#00abff'),
+                     child: Text('Login',
+                         style: TextStyle(
+                           fontFamily: 'Poppins',
+                     )),
+                     color: Colors.teal,
                      textColor: Colors.white,
                    ),
                  ],
@@ -119,7 +120,7 @@ class _MyLoginState extends State<LoginView> {
                InkWell(
                  child: Text(
                    'Sign up',
-                   style: TextStyle(decoration: TextDecoration.underline, color: Colors.blue),
+                   style: TextStyle(fontFamily: 'Poppins', decoration: TextDecoration.underline, color: Colors.blue),
                  ),
                  onTap: (){
                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignupView()));
