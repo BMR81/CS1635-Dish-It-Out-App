@@ -24,106 +24,114 @@ class _MyLoginState extends State<LoginView> {
   @override
   Widget build(BuildContext context){
     return MaterialApp(
-      home: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              'Login',
-              style: TextStyle(
-                  fontSize: 35,
-                  color: Colors.teal,
-                  fontWeight: FontWeight.bold
-              ),
-            ),
+     home: Scaffold(
+       body: Column(
+         mainAxisAlignment: MainAxisAlignment.center,
+         crossAxisAlignment: CrossAxisAlignment.center,
+         children: [
+           Text(
+             'Login',
+             style: TextStyle(
+               fontFamily: 'Poppins',
+               fontSize: 35,
+               color: Colors.teal,
+               fontWeight: FontWeight.bold
+             ),
+           ),
 
-            Padding(
-              padding: const EdgeInsets.fromLTRB(30, 50, 30, 20),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
+           Padding(
+             padding: const EdgeInsets.fromLTRB(30, 50, 30, 20),
+             child: Form(
+               key: _formKey,
+               child: Column(
+                 children: [
 
-                    TextFormField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        labelText: 'Username',
-                        hintText: 'Enter username',
-                        prefixIcon: Icon(Icons.person),
-                        border: OutlineInputBorder(),
-                      ),
-                      onChanged: (String enteredUsername){
+                   TextFormField(
+                     keyboardType: TextInputType.text,
+                     decoration: InputDecoration(
+                       labelText: 'Username',
+                       hintText: 'Enter username',
+                       prefixIcon: Icon(Icons.person),
+                       border: OutlineInputBorder(),
+                     ),
+                     style: TextStyle(
+                       fontFamily: 'Poppins',
+                     ),
+                     onChanged: (String enteredUsername){
+                     },
+                     validator: (enteredUsername){
+                       return enteredUsername!.isEmpty ? 'Please enter username' : null;
+                     },
+                   ),
 
-                      },
-                      validator: (enteredUsername){
-                        return enteredUsername!.isEmpty ? 'Please enter username' : null;
-                      },
-                    ),
+                   SizedBox(height: 50,),
 
-                    SizedBox(height: 50,),
+                   TextFormField(
+                     obscureText: _isObscured,
+                     keyboardType: TextInputType.text,
+                     decoration: InputDecoration(
+                       suffixIcon: IconButton(
+                           padding: const EdgeInsetsDirectional.only(end: 12.0),
+                           icon: _isObscured ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off),
+                           onPressed: (){
+                             setState((){
+                               _isObscured = !_isObscured;
+                             });
+                           }
+                       ),
+                       labelText: 'Password',
+                       hintText: 'Enter password',
+                       prefixIcon: Icon(Icons.lock),
+                       border: OutlineInputBorder(),
+                     ),
+                     style: TextStyle(
+                       fontFamily: 'Poppins',
+                     ),
+                     validator: (value){
+                       return value!.isEmpty ? 'Please enter password' : null;
+                     },
+                   ),
 
-                    TextFormField(
-                      obscureText: _isObscured,
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        suffixIcon: IconButton(
-                            padding: const EdgeInsetsDirectional.only(end: 12.0),
-                            icon: _isObscured ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off),
-                            onPressed: (){
-                              setState((){
-                                _isObscured = !_isObscured;
-                              });
-                            }
-                        ),
-                        labelText: 'Password',
-                        hintText: 'Enter password',
-                        prefixIcon: Icon(Icons.lock),
-                        border: OutlineInputBorder(),
-                      ),
+                   SizedBox(height: 50,),
 
-                      validator: (value){
-                        return value!.isEmpty ? 'Please enter password' : null;
-                      },
-                    ),
+                   MaterialButton(
+                     minWidth: double.infinity,
+                     onPressed: (){
+                       if(_formKey.currentState!.validate()){
 
-                    SizedBox(height: 50,),
+                       }
+                     },
+                     child: Text('Login',
+                         style: TextStyle(
+                           fontFamily: 'Poppins',
+                     )),
+                     color: Colors.teal,
+                     textColor: Colors.white,
+                   ),
+                 ],
+               ),
+             ),
+           ),
 
-                    MaterialButton(
-                      minWidth: double.infinity,
-                      onPressed: (){
-                        if(_formKey.currentState!.validate()){
+           Row(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children: [
+               Text('Not a member? '),
+               InkWell(
+                 child: Text(
+                   'Sign up',
+                   style: TextStyle(fontFamily: 'Poppins', decoration: TextDecoration.underline, color: Colors.blue),
+                 ),
+                 onTap: (){
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => SignupView()));
+                 },
+               ),
+             ],
+           ),
 
-                        }
-                      },
-                      child: Text('Login'),
-                      color: Colors.teal,
-                      textColor: Colors.white,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Not a member? '),
-                InkWell(
-                  child: Text(
-                    'Sign up',
-                    style: TextStyle(decoration: TextDecoration.underline, color: Colors.blue),
-                  ),
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignupView()));
-                  },
-                ),
-              ],
-            ),
-
-          ],
-        ),
-      ),
+         ],
+       ),
+     ),
     );
   }
 }
