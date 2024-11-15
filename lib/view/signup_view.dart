@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 class SignupView extends StatefulWidget {
@@ -19,6 +20,9 @@ class _MySignupState extends State<SignupView> {
   final _passwordcontroller = TextEditingController();
   final _confirmpasswordcontroller = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  var _passwordIsObscured = true;
+  var _confirmPasswordIsObscured = true;
 
   @override
   Widget build(BuildContext context){
@@ -78,26 +82,37 @@ class _MySignupState extends State<SignupView> {
                     SizedBox(height: 20,),
 
                     TextFormField(
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         labelText: 'Email',
                         hintText: 'Enter email',
                         border: OutlineInputBorder(),
                       ),
-                      onChanged: (String enteredEmail){
-
-                      },
-                      validator: (enteredEmail){
-                        return enteredEmail!.isEmpty ? 'Please enter email' : null;
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Please enter email';
+                        }else if(!EmailValidator.validate(value)){
+                          return 'Please enter a valid email';
+                        }
                       },
                     ),
 
                     SizedBox(height: 20,),
 
                     TextFormField(
+                      obscureText: _passwordIsObscured,
                       controller: _passwordcontroller,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                            padding: const EdgeInsetsDirectional.only(end: 12.0),
+                            icon: _passwordIsObscured ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off),
+                            onPressed: (){
+                              setState((){
+                                _passwordIsObscured = !_passwordIsObscured;
+                              });
+                            }
+                        ),
                         labelText: 'Password',
                         hintText: 'Enter password',
                         border: OutlineInputBorder(),
@@ -111,8 +126,18 @@ class _MySignupState extends State<SignupView> {
                     SizedBox(height: 20,),
 
                     TextFormField(
+                      obscureText: _confirmPasswordIsObscured,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                            padding: const EdgeInsetsDirectional.only(end: 12.0),
+                            icon: _confirmPasswordIsObscured ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off),
+                            onPressed: (){
+                              setState((){
+                                _confirmPasswordIsObscured = !_confirmPasswordIsObscured;
+                              });
+                            }
+                        ),
                         labelText: 'Confirm password',
                         hintText: 'Confirm password',
                         border: OutlineInputBorder(),
