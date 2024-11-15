@@ -30,6 +30,7 @@ class _MyLoginState extends State<LoginView> {
            Text(
              'Login',
              style: TextStyle(
+               fontFamily: 'Poppins',
                fontSize: 35,
                color: Colors.teal,
                fontWeight: FontWeight.bold
@@ -69,6 +70,9 @@ class _MyLoginState extends State<LoginView> {
                        prefixIcon: Icon(Icons.lock),
                        border: OutlineInputBorder(),
                      ),
+                     style: TextStyle(
+                       fontFamily: 'Poppins',
+                     ),
                      onChanged: (String enteredPassword){
 
                      },
@@ -98,7 +102,7 @@ class _MyLoginState extends State<LoginView> {
            Row(
              mainAxisAlignment: MainAxisAlignment.center,
              children: [
-               Text('Not a member? '),
+               Text('New user? '),
                InkWell(
                  child: Text(
                    'Sign up',

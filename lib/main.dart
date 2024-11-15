@@ -11,9 +11,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  CupertinoApp(
-        home: LoginView(),
-
+    return CupertinoApp(
+      home: CupertinoPageScaffold(
+        navigationBar: CupertinoNavigationBar(
+          middle: Text('Dish It Out App'),
+        ),
+        child: DefaultTextStyle(
+          style: TextStyle(
+            fontFamily: 'Poppins', // Set the default font to Poppins
+            fontSize: 16,
+            color: CupertinoColors.black,
+          ),
+          child: LoginView(),
+        ),
+      ),
     );
   }
 }
