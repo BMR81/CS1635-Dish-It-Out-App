@@ -1,4 +1,4 @@
-import 'package:cs1635_dish_it_out_app/view/saved_view.dart';
+import 'package:cs1635_dish_it_out_app/view/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -6,16 +6,16 @@ import 'home_view.dart';
 import 'leaderboard_view.dart';
 import 'menu_view.dart';
 
-class ProfileView extends StatefulWidget {
-  const ProfileView({Key? key}) : super(key : key);
+class SavedView extends StatefulWidget {
+  const SavedView({Key? key}) : super(key : key);
 
   @override
-  _MyProfileState createState() => _MyProfileState();
+  _MySavedState createState() => _MySavedState();
 }
 
-class _MyProfileState extends State<ProfileView> {
+class _MySavedState extends State<SavedView> {
 
-  var _currentIndex = 4;
+  var _currentIndex = 3;
 
   List<Route> viewList = [
     MaterialPageRoute(builder: (context) => MenuView()),
@@ -38,7 +38,7 @@ class _MyProfileState extends State<ProfileView> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Profile coming soon',
+                'Saved coming soon',
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 30,

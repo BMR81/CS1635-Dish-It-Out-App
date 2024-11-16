@@ -11,13 +11,6 @@ class SignupView extends StatefulWidget {
 
 class _MySignupState extends State<SignupView> {
 
-//   @override
-//   void initState() {
-//     super.initState();
-//     Provider.of<ListPicturesViewModel>(context, listen: false).fetchPictures();
-// //you can use anything you like or not use anything here. I call it just to have a content on the screen rather than having a blank screen
-//   }
-
   final _passwordcontroller = TextEditingController();
   final _confirmpasswordcontroller = TextEditingController();
   final _formKey = GlobalKey<FormState>();

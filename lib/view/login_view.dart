@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../view_model/user_view_model.dart';
+import 'home_view.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key : key);
@@ -12,13 +13,6 @@ class LoginView extends StatefulWidget {
 }
 
 class _MyLoginState extends State<LoginView> {
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     Provider.of<ListPicturesViewModel>(context, listen: false).fetchPictures();
-// //you can use anything you like or not use anything here. I call it just to have a content on the screen rather than having a blank screen
-//   }
 
   var _userViewModel = UserViewModel();
 
@@ -124,6 +118,7 @@ class _MyLoginState extends State<LoginView> {
                      onPressed: (){
                        if(_formKey.currentState!.validate()){
 
+                         Navigator.push(context, MaterialPageRoute(builder: (context) => HomeView()));
                        }
                      },
                      child: Text('Login',

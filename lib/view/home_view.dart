@@ -1,21 +1,24 @@
+import 'package:cs1635_dish_it_out_app/view/leaderboard_view.dart';
+import 'package:cs1635_dish_it_out_app/view/profile_view.dart';
 import 'package:cs1635_dish_it_out_app/view/saved_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import 'home_view.dart';
-import 'leaderboard_view.dart';
+import '../view_model/user_view_model.dart';
 import 'menu_view.dart';
 
-class ProfileView extends StatefulWidget {
-  const ProfileView({Key? key}) : super(key : key);
+class HomeView extends StatefulWidget {
+  const HomeView({Key? key}) : super(key : key);
 
   @override
-  _MyProfileState createState() => _MyProfileState();
+  _MyHomeState createState() => _MyHomeState();
 }
 
-class _MyProfileState extends State<ProfileView> {
+class _MyHomeState extends State<HomeView> {
 
-  var _currentIndex = 4;
+  var _userViewModel = UserViewModel();
+
+  var _currentIndex = 2;
 
   List<Route> viewList = [
     MaterialPageRoute(builder: (context) => MenuView()),
@@ -26,31 +29,46 @@ class _MyProfileState extends State<ProfileView> {
   ];
 
 
-
   @override
   Widget build(BuildContext context){
     return MaterialApp(
       home: Scaffold(
-        body:
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'Profile coming soon',
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 30,
-                    color: HexColor("00abff"),
-                    fontWeight: FontWeight.bold
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.search),
+                  iconSize: 50,
+                  padding: EdgeInsets.all(40),
+                  onPressed: (){
+
+                  },
                 ),
-              ),
+                IconButton(
+                  icon: Icon(Icons.favorite_border),
+                  iconSize: 50,
+                  padding: EdgeInsets.all(40),
+                  onPressed: (){
 
-            ],
-          ),
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.autorenew),
+                  iconSize: 50,
+                  padding: EdgeInsets.all(40),
+                  onPressed: (){
+
+                  },
+                ),
+              ],
+            ),
+
+          ],
         ),
-
         bottomNavigationBar: BottomNavigationBar(
           showUnselectedLabels: false,
           selectedItemColor: Colors.white,
@@ -59,7 +77,6 @@ class _MyProfileState extends State<ProfileView> {
           onTap: (int newIndex){
             setState(() {
               _currentIndex = newIndex;
-              Navigator.pop(context);
               Navigator.push(context, viewList[newIndex]);
             });
           },
