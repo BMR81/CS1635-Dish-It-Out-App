@@ -1,0 +1,26 @@
+[
+    {
+      "id": 0,
+      "username": "test1",
+      "email": "test1@test.com",
+      "name": "test 1",
+      "password": "test1",
+      "top_dishes": ["pizza", "burger", "tacos"],
+      "dietary_preferences": [],
+      "reviews": [],
+      "liked_restaurants": [],
+      "favorite_restaurants": []
+    },
+    {
+      "id": 1,
+      "username": "test2",
+      "email": "test2@test.com",
+      "name": "test 2",
+      "password": "test2",
+      "top_dishes": ["wings", "salad", "pizza"],
+      "dietary_preferences": [],
+      "reviews": [],
+      "liked_restaurants": [],
+      "favorite_restaurants": []
+    }
+]

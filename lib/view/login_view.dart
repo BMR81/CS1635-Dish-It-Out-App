@@ -2,6 +2,8 @@ import 'package:cs1635_dish_it_out_app/view/signup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import '../view_model/user_view_model.dart';
+
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key : key);
 
@@ -18,9 +20,16 @@ class _MyLoginState extends State<LoginView> {
 // //you can use anything you like or not use anything here. I call it just to have a content on the screen rather than having a blank screen
 //   }
 
+  var _userViewModel = UserViewModel();
+
+  final _usernamecontroller = TextEditingController();
+  final _passwordcontroller = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
 
   var _isObscured = true;
+
+  var _isValid = false;
 
   @override
   Widget build(BuildContext context){
@@ -53,6 +62,7 @@ class _MyLoginState extends State<LoginView> {
                  children: [
 
                    TextFormField(
+                     controller: _usernamecontroller,
                      keyboardType: TextInputType.text,
                      decoration: InputDecoration(
                        labelText: 'Username',
@@ -63,7 +73,8 @@ class _MyLoginState extends State<LoginView> {
                      style: TextStyle(
                        fontFamily: 'Poppins',
                      ),
-                     onChanged: (String enteredUsername){
+                     onChanged: (String enteredUsername) async {
+                       _isValid = await _userViewModel.validateUser(enteredUsername, _passwordcontroller.text);
                      },
                      validator: (enteredUsername){
                        return enteredUsername!.isEmpty ? 'Please enter username' : null;
@@ -73,6 +84,7 @@ class _MyLoginState extends State<LoginView> {
                    SizedBox(height: 50,),
 
                    TextFormField(
+                     controller: _passwordcontroller,
                      obscureText: _isObscured,
                      keyboardType: TextInputType.text,
                      decoration: InputDecoration(
@@ -93,8 +105,15 @@ class _MyLoginState extends State<LoginView> {
                      style: TextStyle(
                        fontFamily: 'Poppins',
                      ),
-                     validator: (value){
-                       return value!.isEmpty ? 'Please enter password' : null;
+                     onChanged: (String enteredPassword) async {
+                       _isValid = await _userViewModel.validateUser(_usernamecontroller.text, enteredPassword);
+                     },
+                     validator: (value) {
+                       if(value!.isEmpty){
+                         return 'Please enter password';
+                       }else if(!_isValid){
+                         return 'Username or password incorrect';
+                       }
                      },
                    ),
 
