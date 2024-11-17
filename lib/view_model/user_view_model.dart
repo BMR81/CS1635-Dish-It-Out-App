@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 
 class UserViewModel {
 
-  late user_model currentUser;
+  user_model currentUser = user_model();
 
   Future<List<user_model>> fetchUsers() async{
     final response = await rootBundle.loadString('assets/datasets/users.json');
@@ -23,11 +23,17 @@ class UserViewModel {
     for(var user in users) {
       if (username == user.username && password == user.password) {
         currentUser = user;
+        print(currentUser.username.toString());
         return true;
       }
     }
     return false;
 
+  }
+
+  user_model getCurrentUser(){
+    print(currentUser.username.toString());
+    return currentUser;
   }
 
 }

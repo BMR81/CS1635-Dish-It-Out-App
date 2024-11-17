@@ -1,3 +1,4 @@
+import 'package:cs1635_dish_it_out_app/model/static_user.dart';
 import 'package:cs1635_dish_it_out_app/view/leaderboard_view.dart';
 import 'package:cs1635_dish_it_out_app/view/profile_view.dart';
 import 'package:cs1635_dish_it_out_app/view/saved_view.dart';

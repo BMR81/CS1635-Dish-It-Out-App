@@ -1,3 +1,5 @@
+import 'package:cs1635_dish_it_out_app/model/static_user.dart';
+import 'package:cs1635_dish_it_out_app/model/user_model.dart';
 import 'package:cs1635_dish_it_out_app/view/signup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -15,6 +17,8 @@ class LoginView extends StatefulWidget {
 class _MyLoginState extends State<LoginView> {
 
   var _userViewModel = UserViewModel();
+
+  var _currentUser = user_model();
 
   final _usernamecontroller = TextEditingController();
   final _passwordcontroller = TextEditingController();
@@ -117,7 +121,8 @@ class _MyLoginState extends State<LoginView> {
                      minWidth: double.infinity,
                      onPressed: (){
                        if(_formKey.currentState!.validate()){
-
+                         _currentUser = _userViewModel.getCurrentUser();
+                         StaticUser.user = _currentUser;
                          Navigator.push(context, MaterialPageRoute(builder: (context) => HomeView()));
                        }
                      },

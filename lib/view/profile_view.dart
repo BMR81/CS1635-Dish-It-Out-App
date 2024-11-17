@@ -1,7 +1,12 @@
+import 'package:cs1635_dish_it_out_app/model/user_model.dart';
+import 'package:cs1635_dish_it_out_app/view/login_view.dart';
 import 'package:cs1635_dish_it_out_app/view/saved_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:simple_shadow/simple_shadow.dart';
 
+import '../model/static_user.dart';
+import '../view_model/user_view_model.dart';
 import 'home_view.dart';
 import 'leaderboard_view.dart';
 import 'menu_view.dart';
@@ -14,6 +19,10 @@ class ProfileView extends StatefulWidget {
 }
 
 class _MyProfileState extends State<ProfileView> {
+
+  var _userViewModel = UserViewModel();
+
+  var _currentUser = user_model();
 
   var _currentIndex = 4;
 
@@ -29,27 +38,29 @@ class _MyProfileState extends State<ProfileView> {
 
   @override
   Widget build(BuildContext context){
+
     return MaterialApp(
       home: Scaffold(
         body:
-        Center(
-          child: Column(
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'Profile coming soon',
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 30,
-                    color: HexColor("00abff"),
-                    fontWeight: FontWeight.bold
+              SimpleShadow(
+                color: Colors.black,
+                opacity: 1,
+                sigma: 1,
+                offset: const Offset(0, 0),
+                child: Image.asset(
+                  'assets/images/profilePhoto.png',
+                  height: 150,
+                  width: 300,
                 ),
               ),
+              Text(StaticUser.user!.username.toString()),
 
             ],
           ),
-        ),
 
         bottomNavigationBar: BottomNavigationBar(
           showUnselectedLabels: false,
