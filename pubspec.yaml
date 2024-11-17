@@ -64,6 +64,12 @@ flutter:
 
   assets:
     - assets/images/dioLogo.png
+    - assets/icons/dice.png
+    - assets/images/pizza.png
+    - assets/images/burger.png
+    - assets/images/taco.png
+    - assets/images/salad.png
+    - assets/images/wings.png
     - assets/images/profilePhoto.png
     - assets/datasets/users.json
 

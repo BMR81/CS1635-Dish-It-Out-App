@@ -58,8 +58,11 @@ class _MyHomeState extends State<HomeView> {
                   },
                 ),
                 IconButton(
-                  icon: Icon(Icons.autorenew),
-                  iconSize: 50,
+                  icon: Image.asset(
+                    "assets/icons/dice.png",
+                    width: 50,
+                    height: 50,
+                  ),
                   padding: EdgeInsets.all(40),
                   onPressed: (){
 

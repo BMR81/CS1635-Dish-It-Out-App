@@ -20,9 +20,9 @@ class ProfileView extends StatefulWidget {
 
 class _MyProfileState extends State<ProfileView> {
 
-  var _userViewModel = UserViewModel();
-
-  var _currentUser = user_model();
+  String firstDish = StaticUser.user!.firstDish.toString();
+  String secondDish = StaticUser.user!.secondDish.toString();
+  String thirdDish = StaticUser.user!.thirdDish.toString();
 
   var _currentIndex = 4;
 
@@ -57,7 +57,119 @@ class _MyProfileState extends State<ProfileView> {
                   width: 300,
                 ),
               ),
-              Text(StaticUser.user!.username.toString()),
+              Text(
+                StaticUser.user!.username.toString(),
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 40,
+                    color: HexColor("00abff"),
+                    fontWeight: FontWeight.bold
+                ),
+              ),
+              SizedBox(height: 30,),
+              Divider(color: Colors.black,),
+              Align(
+                alignment: Alignment.topLeft,
+                child:
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: Text(
+                    "Favorite Dishes",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 25,
+                        color: HexColor("00abff"),
+                        fontWeight: FontWeight.bold
+                    ),
+                  ),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Image.asset(
+                          'assets/images/$firstDish.png',
+                          height: 100,
+                          width: 100,
+                        ),
+                      ),
+                      Text(
+                        "1. $firstDish",
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 20,
+                            color: HexColor("00abff"),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Image.asset(
+                          'assets/images/$secondDish.png',
+                          height: 100,
+                          width: 100,
+                        ),
+                      ),
+                      Text(
+                        "2. $secondDish",
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 20,
+                            color: HexColor("00abff"),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Image.asset(
+                          'assets/images/$thirdDish.png',
+                          height: 100,
+                          width: 100,
+                        ),
+                      ),
+                      Text(
+                        "3. $thirdDish",
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 20,
+                            color: HexColor("00abff"),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                ],
+              ),
+              Divider(color: Colors.black,),
+              Align(
+                alignment: Alignment.topLeft,
+                child:
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: Text(
+                    "Review Log (coming soon)",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 25,
+                        color: HexColor("00abff"),
+                        fontWeight: FontWeight.bold
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 200,),
 
             ],
           ),
