@@ -1,6 +1,8 @@
 import 'package:cs1635_dish_it_out_app/model/restaurant_model.dart';
 import 'package:flutter/material.dart';
 
+import '../details_view.dart';
+
 class RestaurantCardWidget extends StatefulWidget {
   final restaurant_model restaurant;
 
@@ -61,6 +63,7 @@ class _MyRestaurantCardState extends State<RestaurantCardWidget> {
                       ),
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 25),
@@ -72,14 +75,12 @@ class _MyRestaurantCardState extends State<RestaurantCardWidget> {
                           ),
                         ),
 
-                        SizedBox(width: 200,),
-
                           IconButton(
                             padding: EdgeInsets.symmetric(horizontal: 5),
                             icon: Icon(Icons.info_outline),
                             iconSize: 40,
                             onPressed: () {
-
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsView(restaurant: widget.restaurant,)));
                             },
                           ),
                       ],

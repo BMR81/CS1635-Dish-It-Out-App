@@ -92,7 +92,7 @@ class _MyHomeState extends State<HomeView> {
               height: 50,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
                   icon: Icon(CupertinoIcons.xmark_circle),
