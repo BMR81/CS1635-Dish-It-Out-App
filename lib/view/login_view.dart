@@ -1,6 +1,8 @@
+import 'package:cs1635_dish_it_out_app/model/static_restaurant_list.dart';
 import 'package:cs1635_dish_it_out_app/model/static_user.dart';
 import 'package:cs1635_dish_it_out_app/model/user_model.dart';
 import 'package:cs1635_dish_it_out_app/view/signup_view.dart';
+import 'package:cs1635_dish_it_out_app/view_model/restaurant_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -119,10 +121,11 @@ class _MyLoginState extends State<LoginView> {
 
                    MaterialButton(
                      minWidth: double.infinity,
-                     onPressed: (){
+                     onPressed: () async {
                        if(_formKey.currentState!.validate()){
                          _currentUser = _userViewModel.getCurrentUser();
                          StaticUser.user = _currentUser;
+                         StaticRestaurantList.restaurants = await RestaurantViewModel().getMatches(_currentUser);
                          Navigator.push(context, MaterialPageRoute(builder: (context) => HomeView()));
                        }
                      },

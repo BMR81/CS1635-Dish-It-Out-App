@@ -63,15 +63,16 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/dioLogo.png
     - assets/icons/dice.png
+    - assets/images/dioLogo.png
     - assets/images/pizza.png
     - assets/images/burger.png
-    - assets/images/taco.png
+    - assets/images/tacos.png
     - assets/images/salad.png
     - assets/images/wings.png
     - assets/images/profilePhoto.png
     - assets/datasets/users.json
+    - assets/datasets/restaurants.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
