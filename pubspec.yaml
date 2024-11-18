@@ -63,17 +63,37 @@ flutter:
   uses-material-design: true
 
   assets:
+    # custom icons
     - assets/icons/dice.png
-    - assets/images/dioLogo.png
+    # dish images
     - assets/images/pizza.png
     - assets/images/burger.png
     - assets/images/tacos.png
     - assets/images/salad.png
     - assets/images/wings.png
+    # restaurant images
+    - assets/images/restaurants/PizzaRomano.jpeg
+    - assets/images/restaurants/Stackd.jpg
+    - assets/images/restaurants/VivaLosTacos.jpg
+    - assets/images/restaurants/PrimantiBros.jpg
+    - assets/images/restaurants/Roots.jpg
+    - assets/images/restaurants/Fioris.webp
+    - assets/images/restaurants/Burgatory.jpeg
+    - assets/images/restaurants/CondadoTacos.jpg
+    - assets/images/restaurants/Wingstop.webp
+    - assets/images/restaurants/Honeygrow.webp
+    - assets/images/restaurants/Betos.webp
+    - assets/images/restaurants/UnionGrill.jpg
+    - assets/images/restaurants/LasPalmas.jpg
+    - assets/images/restaurants/MadChicken.png
+    - assets/images/restaurants/SoFresh.webp
+    # miscellaneous images
+    - assets/images/dioLogo.png
     - assets/images/profilePhoto.png
+    - assets/images/background.png
+    # json files for data
     - assets/datasets/users.json
     - assets/datasets/restaurants.json
-    - assets/images/background.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

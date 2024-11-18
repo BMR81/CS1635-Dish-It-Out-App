@@ -32,8 +32,9 @@ class _MyRestaurantCardState extends State<RestaurantCardWidget> {
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),
                 ),
-                child: Image(
-                    image: NetworkImage(widget.restaurant.image.toString())),
+                child: Image.asset(
+                  widget.restaurant.image.toString()
+                ),
               ),
                 Column(
                   children: [

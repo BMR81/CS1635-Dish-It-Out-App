@@ -36,7 +36,7 @@ class _MyDetailsState extends State<DetailsView> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.fill,
-                  image: NetworkImage(widget.restaurant.image.toString())),
+                  image: AssetImage(widget.restaurant.image.toString())),
                 ),
               ),
 
