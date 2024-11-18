@@ -20,6 +20,7 @@ class HomeView extends StatefulWidget {
 
 class _MyHomeState extends State<HomeView> {
   var _currentRestaurant = 0;
+  var _numRestaurants = StaticRestaurantList.restaurants!.length;
 
   var _hasMore = true;
 
@@ -71,10 +72,10 @@ class _MyHomeState extends State<HomeView> {
               height: 50,
             ),
             Container(
-              child: _hasMore
+              child: _hasMore && _numRestaurants > 0
                   ? RestaurantCardWidget(
                       restaurant:
-                          StaticRestaurantList.restaurants![_currentRestaurant])
+                          StaticRestaurantList.restaurants![0])
                   : Padding(
                       padding: EdgeInsets.symmetric(vertical: 100),
                       child: Text(
@@ -99,13 +100,14 @@ class _MyHomeState extends State<HomeView> {
                   color: Colors.red,
                   padding: EdgeInsets.all(20),
                   onPressed: () {
-                    if (_currentRestaurant !=
-                        (StaticRestaurantList.restaurants!.length - 1)) {
+                    if (_currentRestaurant != _numRestaurants - 1) {
                       setState(() {
+                        StaticRestaurantList.restaurants?.removeAt(0);
                         _currentRestaurant = _currentRestaurant + 1;
                       });
                     } else {
                       setState(() {
+                        StaticRestaurantList.restaurants?.removeAt(0);
                         _hasMore = false;
                       });
                     }
@@ -117,13 +119,14 @@ class _MyHomeState extends State<HomeView> {
                   color: Colors.green,
                   padding: EdgeInsets.all(20),
                   onPressed: () {
-                    if (_currentRestaurant !=
-                        (StaticRestaurantList.restaurants!.length - 1)) {
+                    if (_currentRestaurant != _numRestaurants - 1) {
                       setState(() {
+                        StaticRestaurantList.restaurants?.removeAt(0);
                         _currentRestaurant = _currentRestaurant + 1;
                       });
                     } else {
                       setState(() {
+                        StaticRestaurantList.restaurants?.removeAt(0);
                         _hasMore = false;
                       });
                     }
