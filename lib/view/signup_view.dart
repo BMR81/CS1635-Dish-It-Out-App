@@ -63,8 +63,8 @@ class _MySignupState extends State<SignupView> {
                           children: [
                             TextFormField(
                               keyboardType: TextInputType.text,
-                              decoration: _inputDecoration(
-                                  'Name', 'Enter your name'),
+                              decoration:
+                                  _inputDecoration('Name', 'Enter your name'),
                               validator: (enteredName) {
                                 return enteredName!.isEmpty
                                     ? 'Please enter your name'
@@ -74,8 +74,8 @@ class _MySignupState extends State<SignupView> {
                             const SizedBox(height: 20),
                             TextFormField(
                               keyboardType: TextInputType.text,
-                              decoration:
-                              _inputDecoration('Username', 'Enter your username'),
+                              decoration: _inputDecoration(
+                                  'Username', 'Enter your username'),
                               validator: (enteredUsername) {
                                 return enteredUsername!.isEmpty
                                     ? 'Please enter your username'
@@ -85,8 +85,8 @@ class _MySignupState extends State<SignupView> {
                             const SizedBox(height: 20),
                             TextFormField(
                               keyboardType: TextInputType.emailAddress,
-                              decoration: _inputDecoration(
-                                  'Email', 'Enter your email'),
+                              decoration:
+                                  _inputDecoration('Email', 'Enter your email'),
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return 'Please enter your email';
@@ -113,7 +113,7 @@ class _MySignupState extends State<SignupView> {
                                   onPressed: () {
                                     setState(() {
                                       _passwordIsObscured =
-                                      !_passwordIsObscured;
+                                          !_passwordIsObscured;
                                     });
                                   },
                                 ),
@@ -140,7 +140,7 @@ class _MySignupState extends State<SignupView> {
                                   onPressed: () {
                                     setState(() {
                                       _confirmPasswordIsObscured =
-                                      !_confirmPasswordIsObscured;
+                                          !_confirmPasswordIsObscured;
                                     });
                                   },
                                 ),
@@ -163,10 +163,11 @@ class _MySignupState extends State<SignupView> {
                                 elevation: 5,
                               ).copyWith(
                                 backgroundColor:
-                                WidgetStateProperty.resolveWith<Color>(
-                                      (Set<WidgetState> states) {
+                                    WidgetStateProperty.resolveWith<Color>(
+                                  (Set<WidgetState> states) {
                                     if (states.contains(WidgetState.pressed)) {
-                                      return HexColor("FF5400"); // Orange when pressed
+                                      return HexColor(
+                                          "FF5400"); // Orange when pressed
                                     }
                                     return HexColor("#00abff"); // blue
                                   },
@@ -176,8 +177,7 @@ class _MySignupState extends State<SignupView> {
                                 ),
                               ),
                               onPressed: () {
-                                if (_formKey.currentState!.validate()) {
-                                }
+                                if (_formKey.currentState!.validate()) {}
                               },
                               child: const Text(
                                 'Next',
@@ -235,11 +235,11 @@ class _MySignupState extends State<SignupView> {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
-        borderSide: const BorderSide(color: Colors.grey, width: 2.0), // focused gray
+        borderSide:
+            const BorderSide(color: Colors.grey, width: 2.0), // focused gray
       ),
       fillColor: Colors.white,
       filled: true,
     );
   }
 }
-

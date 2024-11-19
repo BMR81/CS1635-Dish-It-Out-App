@@ -74,8 +74,7 @@ class _MyHomeState extends State<HomeView> {
             Container(
               child: _hasMore && _numRestaurants > 0
                   ? RestaurantCardWidget(
-                      restaurant:
-                          StaticRestaurantList.restaurants![0])
+                      restaurant: StaticRestaurantList.restaurants![0])
                   : Padding(
                       padding: EdgeInsets.symmetric(vertical: 100),
                       child: Text(
@@ -121,11 +120,15 @@ class _MyHomeState extends State<HomeView> {
                   onPressed: () {
                     if (_currentRestaurant != _numRestaurants - 1) {
                       setState(() {
+                        StaticRestaurantList.likedRestaurants
+                            ?.add(StaticRestaurantList.restaurants![0]);
                         StaticRestaurantList.restaurants?.removeAt(0);
                         _currentRestaurant = _currentRestaurant + 1;
                       });
                     } else {
                       setState(() {
+                        StaticRestaurantList.likedRestaurants
+                            ?.add(StaticRestaurantList.restaurants![0]);
                         StaticRestaurantList.restaurants?.removeAt(0);
                         _hasMore = false;
                       });

@@ -16,7 +16,8 @@ class LoginView extends StatefulWidget {
   _MyLoginState createState() => _MyLoginState();
 }
 
-class _MyLoginState extends State<LoginView> with SingleTickerProviderStateMixin {
+class _MyLoginState extends State<LoginView>
+    with SingleTickerProviderStateMixin {
   var _userViewModel = UserViewModel();
   var _currentUser = user_model();
 
@@ -175,7 +176,8 @@ class _MyLoginState extends State<LoginView> with SingleTickerProviderStateMixin
                             // Login button
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: HexColor("00abff"), // Default blue
+                                backgroundColor:
+                                    HexColor("00abff"), // Default blue
                                 foregroundColor: Colors.white, // Text color
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -183,10 +185,11 @@ class _MyLoginState extends State<LoginView> with SingleTickerProviderStateMixin
                                 elevation: 5, // Elevation for shadow effect
                               ).copyWith(
                                 backgroundColor:
-                                WidgetStateProperty.resolveWith<Color>(
-                                      (Set<WidgetState> states) {
+                                    WidgetStateProperty.resolveWith<Color>(
+                                  (Set<WidgetState> states) {
                                     if (states.contains(WidgetState.pressed)) {
-                                      return HexColor("FF5400"); // Orange when pressed
+                                      return HexColor(
+                                          "FF5400"); // Orange when pressed
                                     }
                                     return HexColor("00abff"); // Default color
                                   },
@@ -198,8 +201,8 @@ class _MyLoginState extends State<LoginView> with SingleTickerProviderStateMixin
                                       _userViewModel.getCurrentUser();
                                   StaticUser.user = _currentUser;
                                   StaticRestaurantList.restaurants =
-                                  await RestaurantViewModel()
-                                      .getMatches(_currentUser);
+                                      await RestaurantViewModel()
+                                          .getMatches(_currentUser);
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(

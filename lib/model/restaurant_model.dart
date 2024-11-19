@@ -1,5 +1,4 @@
 class restaurant_model {
-
   int? id;
   String? name;
   String? image;
@@ -11,18 +10,17 @@ class restaurant_model {
   List? reviews;
   String? dish;
 
-
-  restaurant_model (
+  restaurant_model(
       {this.id,
-        this.name,
-        this.image,
-        this.location,
-        this.hours,
-        this.preferences,
-        this.rating,
-        this.numReviews,
-        this.reviews,
-        this.dish});
+      this.name,
+      this.image,
+      this.location,
+      this.hours,
+      this.preferences,
+      this.rating,
+      this.numReviews,
+      this.reviews,
+      this.dish});
 
   restaurant_model.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -34,6 +32,4 @@ class restaurant_model {
     numReviews = json['number_of_reviews'];
     dish = json['dish'];
   }
-
-
 }

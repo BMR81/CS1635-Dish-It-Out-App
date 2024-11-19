@@ -12,14 +12,13 @@ import 'leaderboard_view.dart';
 import 'menu_view.dart';
 
 class ProfileView extends StatefulWidget {
-  const ProfileView({Key? key}) : super(key : key);
+  const ProfileView({Key? key}) : super(key: key);
 
   @override
   _MyProfileState createState() => _MyProfileState();
 }
 
 class _MyProfileState extends State<ProfileView> {
-
   String firstDish = StaticUser.user!.firstDish.toString();
   String secondDish = StaticUser.user!.secondDish.toString();
   String thirdDish = StaticUser.user!.thirdDish.toString();
@@ -34,152 +33,148 @@ class _MyProfileState extends State<ProfileView> {
     MaterialPageRoute(builder: (context) => ProfileView()),
   ];
 
-
-
   @override
-  Widget build(BuildContext context){
-
+  Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body:
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SimpleShadow(
-                color: Colors.black,
-                opacity: 1,
-                sigma: 1,
-                offset: const Offset(0, 0),
-                child: Image.asset(
-                  'assets/images/profilePhoto.png',
-                  height: 150,
-                  width: 300,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SimpleShadow(
+              color: Colors.black,
+              opacity: 1,
+              sigma: 1,
+              offset: const Offset(0, 0),
+              child: Image.asset(
+                'assets/images/profilePhoto.png',
+                height: 150,
+                width: 300,
+              ),
+            ),
+            Text(
+              StaticUser.user!.username.toString(),
+              style: TextStyle(
+                  fontFamily: 'Quicksand',
+                  fontSize: 40,
+                  color: HexColor("00abff"),
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Divider(
+              color: Colors.black,
+            ),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  "Favorite Dishes",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontFamily: 'Quicksand',
+                      fontSize: 25,
+                      color: HexColor("00abff"),
+                      fontWeight: FontWeight.bold),
                 ),
               ),
-              Text(
-                StaticUser.user!.username.toString(),
-                style: TextStyle(
-                    fontFamily: 'Quicksand',
-                    fontSize: 40,
-                    color: HexColor("00abff"),
-                    fontWeight: FontWeight.bold
-                ),
-              ),
-              SizedBox(height: 30,),
-              Divider(color: Colors.black,),
-              Align(
-                alignment: Alignment.topLeft,
-                child:
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    "Favorite Dishes",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        fontFamily: 'Quicksand',
-                        fontSize: 25,
-                        color: HexColor("00abff"),
-                        fontWeight: FontWeight.bold
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Image.asset(
+                        'assets/images/$firstDish.png',
+                        height: 100,
+                        width: 100,
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Image.asset(
-                          'assets/images/$firstDish.png',
-                          height: 100,
-                          width: 100,
-                        ),
-                      ),
-                      Text(
-                        "1. $firstDish",
-                        style: TextStyle(
-                            fontFamily: 'Quicksand',
-                            fontSize: 20,
-                            color: HexColor("00abff"),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Image.asset(
-                          'assets/images/$secondDish.png',
-                          height: 100,
-                          width: 100,
-                        ),
-                      ),
-                      Text(
-                        "2. $secondDish",
-                        style: TextStyle(
-                            fontFamily: 'Quicksand',
-                            fontSize: 20,
-                            color: HexColor("00abff"),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Image.asset(
-                          'assets/images/$thirdDish.png',
-                          height: 100,
-                          width: 100,
-                        ),
-                      ),
-                      Text(
-                        "3. $thirdDish",
-                        style: TextStyle(
-                            fontFamily: 'Quicksand',
-                            fontSize: 20,
-                            color: HexColor("00abff"),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                ],
-              ),
-              Divider(color: Colors.black,),
-              Align(
-                alignment: Alignment.topLeft,
-                child:
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    "Review Log (coming soon)",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
+                    Text(
+                      "1. $firstDish",
+                      style: TextStyle(
                         fontFamily: 'Quicksand',
-                        fontSize: 25,
+                        fontSize: 20,
                         color: HexColor("00abff"),
-                        fontWeight: FontWeight.bold
+                      ),
                     ),
-                  ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Image.asset(
+                        'assets/images/$secondDish.png',
+                        height: 100,
+                        width: 100,
+                      ),
+                    ),
+                    Text(
+                      "2. $secondDish",
+                      style: TextStyle(
+                        fontFamily: 'Quicksand',
+                        fontSize: 20,
+                        color: HexColor("00abff"),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Image.asset(
+                        'assets/images/$thirdDish.png',
+                        height: 100,
+                        width: 100,
+                      ),
+                    ),
+                    Text(
+                      "3. $thirdDish",
+                      style: TextStyle(
+                        fontFamily: 'Quicksand',
+                        fontSize: 20,
+                        color: HexColor("00abff"),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Divider(
+              color: Colors.black,
+            ),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  "Review Log (coming soon)",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontFamily: 'Quicksand',
+                      fontSize: 25,
+                      color: HexColor("00abff"),
+                      fontWeight: FontWeight.bold),
                 ),
               ),
-              SizedBox(height: 200,),
-
-            ],
-          ),
-
+            ),
+            SizedBox(
+              height: 200,
+            ),
+          ],
+        ),
         bottomNavigationBar: BottomNavigationBar(
           showUnselectedLabels: false,
           selectedItemColor: Colors.white,
           backgroundColor: HexColor('#00abff'),
           type: BottomNavigationBarType.fixed,
-          onTap: (int newIndex){
+          onTap: (int newIndex) {
             setState(() {
               _currentIndex = newIndex;
               Navigator.pop(context);
@@ -187,7 +182,7 @@ class _MyProfileState extends State<ProfileView> {
             });
           },
           currentIndex: _currentIndex,
-          items: const[
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.menu),
               label: 'Menu',

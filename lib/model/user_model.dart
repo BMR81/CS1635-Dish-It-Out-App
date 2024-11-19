@@ -1,5 +1,4 @@
 class user_model {
-
   int? id;
   String? username;
   String? email;
@@ -13,20 +12,19 @@ class user_model {
   List<int>? likedRestaurants;
   List<int>? favoriteRestaurants;
 
-
-  user_model (
+  user_model(
       {this.id,
-        this.username,
-        this.email,
-        this.name,
-        this.password,
-        this.firstDish,
-        this.secondDish,
-        this.thirdDish,
-        this.dietaryPreferences,
-        this.reviews,
-        this.likedRestaurants,
-        this.favoriteRestaurants});
+      this.username,
+      this.email,
+      this.name,
+      this.password,
+      this.firstDish,
+      this.secondDish,
+      this.thirdDish,
+      this.dietaryPreferences,
+      this.reviews,
+      this.likedRestaurants,
+      this.favoriteRestaurants});
 
   user_model.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -38,6 +36,4 @@ class user_model {
     secondDish = json['second_dish'];
     thirdDish = json['third_dish'];
   }
-
-
 }

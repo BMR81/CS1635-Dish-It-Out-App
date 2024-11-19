@@ -7,14 +7,13 @@ import 'home_view.dart';
 import 'menu_view.dart';
 
 class LeaderboardView extends StatefulWidget {
-  const LeaderboardView({Key? key}) : super(key : key);
+  const LeaderboardView({Key? key}) : super(key: key);
 
   @override
   _MyLeaderboardState createState() => _MyLeaderboardState();
 }
 
 class _MyLeaderboardState extends State<LeaderboardView> {
-
   var _currentIndex = 1;
 
   List<Route> viewList = [
@@ -25,14 +24,11 @@ class _MyLeaderboardState extends State<LeaderboardView> {
     MaterialPageRoute(builder: (context) => ProfileView()),
   ];
 
-
-
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body:
-        Center(
+        body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -43,20 +39,17 @@ class _MyLeaderboardState extends State<LeaderboardView> {
                     fontFamily: 'Quicksand',
                     fontSize: 30,
                     color: HexColor("00abff"),
-                    fontWeight: FontWeight.bold
-                ),
+                    fontWeight: FontWeight.bold),
               ),
-
             ],
           ),
         ),
-
         bottomNavigationBar: BottomNavigationBar(
           showUnselectedLabels: false,
           selectedItemColor: Colors.white,
           backgroundColor: HexColor('#00abff'),
           type: BottomNavigationBarType.fixed,
-          onTap: (int newIndex){
+          onTap: (int newIndex) {
             setState(() {
               _currentIndex = newIndex;
               Navigator.pop(context);
@@ -64,7 +57,7 @@ class _MyLeaderboardState extends State<LeaderboardView> {
             });
           },
           currentIndex: _currentIndex,
-          items: const[
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.menu),
               label: 'Menu',

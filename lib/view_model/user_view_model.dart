@@ -5,10 +5,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 class UserViewModel {
-
   user_model currentUser = user_model();
 
-  Future<List<user_model>> fetchUsers() async{
+  Future<List<user_model>> fetchUsers() async {
     final response = await rootBundle.loadString('assets/datasets/users.json');
     final json = jsonDecode(response) as List<dynamic>;
 
@@ -16,11 +15,10 @@ class UserViewModel {
     return userList;
   }
 
-
   Future<bool> validateUser(String username, String password) async {
     List<user_model> users = await fetchUsers();
 
-    for(var user in users) {
+    for (var user in users) {
       if (username == user.username && password == user.password) {
         currentUser = user;
         print(currentUser.username.toString());
@@ -28,12 +26,10 @@ class UserViewModel {
       }
     }
     return false;
-
   }
 
-  user_model getCurrentUser(){
+  user_model getCurrentUser() {
     print(currentUser.username.toString());
     return currentUser;
   }
-
 }

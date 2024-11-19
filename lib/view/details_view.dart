@@ -16,7 +16,7 @@ class DetailsView extends StatefulWidget {
 
 class _MyDetailsState extends State<DetailsView> {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         body: Column(
@@ -27,7 +27,12 @@ class _MyDetailsState extends State<DetailsView> {
               iconSize: 50,
               padding: EdgeInsets.only(top: 60),
               onPressed: () {
-                Navigator.pop(context, MaterialPageRoute(builder: (context) => DetailsView(restaurant: widget.restaurant,)));
+                Navigator.pop(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => DetailsView(
+                              restaurant: widget.restaurant,
+                            )));
               },
             ),
             Container(
@@ -35,11 +40,10 @@ class _MyDetailsState extends State<DetailsView> {
               height: 300,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(widget.restaurant.image.toString())),
-                ),
+                    fit: BoxFit.fill,
+                    image: AssetImage(widget.restaurant.image.toString())),
               ),
-
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -54,17 +58,13 @@ class _MyDetailsState extends State<DetailsView> {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-
                 IconButton(
                   icon: Icon(Icons.favorite_border),
                   iconSize: 40,
-                  onPressed: () {
-
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
-
             Row(
               children: [
                 Padding(
@@ -72,15 +72,19 @@ class _MyDetailsState extends State<DetailsView> {
                   child: Text(
                     widget.restaurant.rating.toString(),
                     textAlign: TextAlign.left,
-                    style: TextStyle(
-                        fontFamily: 'Quicksand',
-                        fontSize: 18),
+                    style: TextStyle(fontFamily: 'Quicksand', fontSize: 18),
                   ),
                 ),
                 Stack(
                   children: [
-                    Icon( Icons.star, color: Colors.yellow,),
-                    Icon(Icons.star_border, color: Colors.black,),
+                    Icon(
+                      Icons.star,
+                      color: Colors.yellow,
+                    ),
+                    Icon(
+                      Icons.star_border,
+                      color: Colors.black,
+                    ),
                   ],
                 ),
                 Padding(
@@ -89,15 +93,14 @@ class _MyDetailsState extends State<DetailsView> {
                     "(${widget.restaurant.numReviews.toString()})",
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontFamily: 'Quicksand',
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
+                      fontFamily: 'Quicksand',
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
               ],
             ),
-
             Row(
               children: [
                 Padding(
@@ -110,28 +113,26 @@ class _MyDetailsState extends State<DetailsView> {
                     widget.restaurant.location.toString(),
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontFamily: 'Quicksand',
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                      fontFamily: 'Quicksand',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
               ],
             ),
-
             Padding(
               padding: EdgeInsets.only(top: 10, left: 15),
               child: Text(
                 widget.restaurant.hours.toString(),
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    fontFamily: 'Quicksand',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+                  fontFamily: 'Quicksand',
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
-
             Padding(
               padding: EdgeInsets.only(top: 20, left: 15),
               child: Text(
@@ -143,7 +144,6 @@ class _MyDetailsState extends State<DetailsView> {
                     fontWeight: FontWeight.bold),
               ),
             ),
-
             Padding(
               padding: EdgeInsets.only(left: 15),
               child: Column(
@@ -164,9 +164,9 @@ class _MyDetailsState extends State<DetailsView> {
                 ],
               ),
             ),
-
-            SizedBox(height: 50,),
-
+            SizedBox(
+              height: 50,
+            ),
             Center(
               child: Text(
                 "Reviews (coming soon)",
@@ -175,11 +175,9 @@ class _MyDetailsState extends State<DetailsView> {
                     fontFamily: 'Quicksand',
                     fontSize: 25,
                     color: HexColor("00abff"),
-                    fontWeight: FontWeight.bold
-                ),
+                    fontWeight: FontWeight.bold),
               ),
             ),
-
           ],
         ),
       ),
