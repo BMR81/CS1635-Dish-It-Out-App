@@ -40,7 +40,7 @@ class _MyMenuState extends State<MenuView> {
               Text(
                 'Menu coming soon',
                 style: TextStyle(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Quicksand',
                     fontSize: 30,
                     color: HexColor("00abff"),
                     fontWeight: FontWeight.bold

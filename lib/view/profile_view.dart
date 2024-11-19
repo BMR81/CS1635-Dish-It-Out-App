@@ -60,7 +60,7 @@ class _MyProfileState extends State<ProfileView> {
               Text(
                 StaticUser.user!.username.toString(),
                 style: TextStyle(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Quicksand',
                     fontSize: 40,
                     color: HexColor("00abff"),
                     fontWeight: FontWeight.bold
@@ -77,7 +77,7 @@ class _MyProfileState extends State<ProfileView> {
                     "Favorite Dishes",
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Quicksand',
                         fontSize: 25,
                         color: HexColor("00abff"),
                         fontWeight: FontWeight.bold
@@ -101,7 +101,7 @@ class _MyProfileState extends State<ProfileView> {
                       Text(
                         "1. $firstDish",
                         style: TextStyle(
-                            fontFamily: 'Poppins',
+                            fontFamily: 'Quicksand',
                             fontSize: 20,
                             color: HexColor("00abff"),
                         ),
@@ -121,7 +121,7 @@ class _MyProfileState extends State<ProfileView> {
                       Text(
                         "2. $secondDish",
                         style: TextStyle(
-                            fontFamily: 'Poppins',
+                            fontFamily: 'Quicksand',
                             fontSize: 20,
                             color: HexColor("00abff"),
                         ),
@@ -141,7 +141,7 @@ class _MyProfileState extends State<ProfileView> {
                       Text(
                         "3. $thirdDish",
                         style: TextStyle(
-                            fontFamily: 'Poppins',
+                            fontFamily: 'Quicksand',
                             fontSize: 20,
                             color: HexColor("00abff"),
                         ),
@@ -161,7 +161,7 @@ class _MyProfileState extends State<ProfileView> {
                     "Review Log (coming soon)",
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Quicksand',
                         fontSize: 25,
                         color: HexColor("00abff"),
                         fontWeight: FontWeight.bold

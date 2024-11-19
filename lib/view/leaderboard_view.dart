@@ -40,7 +40,7 @@ class _MyLeaderboardState extends State<LeaderboardView> {
               Text(
                 'Leaderboard coming soon',
                 style: TextStyle(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Quicksand',
                     fontSize: 30,
                     color: HexColor("00abff"),
                     fontWeight: FontWeight.bold

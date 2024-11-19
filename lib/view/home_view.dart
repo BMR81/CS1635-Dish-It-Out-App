@@ -79,10 +79,10 @@ class _MyHomeState extends State<HomeView> {
                   : Padding(
                       padding: EdgeInsets.symmetric(vertical: 100),
                       child: Text(
-                        'No more options!',
+                        'Dish it out another time!',
                         style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 40,
+                            fontFamily: 'Quicksand',
+                            fontSize: 30,
                             color: HexColor("00abff"),
                             fontWeight: FontWeight.bold),
                       ),

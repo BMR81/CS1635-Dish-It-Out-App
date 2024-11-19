@@ -40,7 +40,7 @@ class _MySavedState extends State<SavedView> {
               Text(
                 'Saved coming soon',
                 style: TextStyle(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Quicksand',
                     fontSize: 30,
                     color: HexColor("00abff"),
                     fontWeight: FontWeight.bold

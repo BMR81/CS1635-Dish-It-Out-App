@@ -49,7 +49,7 @@ class _MyDetailsState extends State<DetailsView> {
                     widget.restaurant.name.toString(),
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Quicksand',
                         fontSize: 25,
                         fontWeight: FontWeight.bold),
                   ),
@@ -73,7 +73,7 @@ class _MyDetailsState extends State<DetailsView> {
                     widget.restaurant.rating.toString(),
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Quicksand',
                         fontSize: 18),
                   ),
                 ),
@@ -89,8 +89,10 @@ class _MyDetailsState extends State<DetailsView> {
                     "(${widget.restaurant.numReviews.toString()})",
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 18),
+                        fontFamily: 'Quicksand',
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ],
@@ -108,8 +110,10 @@ class _MyDetailsState extends State<DetailsView> {
                     widget.restaurant.location.toString(),
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 16),
+                        fontFamily: 'Quicksand',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ],
@@ -121,8 +125,10 @@ class _MyDetailsState extends State<DetailsView> {
                 widget.restaurant.hours.toString(),
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 16),
+                    fontFamily: 'Quicksand',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                ),
               ),
             ),
 
@@ -132,7 +138,7 @@ class _MyDetailsState extends State<DetailsView> {
                 "Dishes you might like:",
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Quicksand',
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
@@ -151,7 +157,7 @@ class _MyDetailsState extends State<DetailsView> {
                     widget.restaurant.dish.toString().toUpperCase(),
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Quicksand',
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
@@ -166,7 +172,7 @@ class _MyDetailsState extends State<DetailsView> {
                 "Reviews (coming soon)",
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Quicksand',
                     fontSize: 25,
                     color: HexColor("00abff"),
                     fontWeight: FontWeight.bold

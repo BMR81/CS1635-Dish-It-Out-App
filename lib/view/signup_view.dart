@@ -20,7 +20,7 @@ class _MySignupState extends State<SignupView> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: "Poppins"),
+      theme: ThemeData(fontFamily: "Quicksand"),
       home: Scaffold(
         resizeToAvoidBottomInset: true,
         body: Stack(
@@ -48,7 +48,7 @@ class _MySignupState extends State<SignupView> {
                     Text(
                       'Sign up',
                       style: TextStyle(
-                        fontFamily: "Poppins",
+                        fontFamily: "Quicksand",
                         fontSize: 40,
                         color: HexColor('#00abff'),
                         fontWeight: FontWeight.bold,
@@ -196,7 +196,7 @@ class _MySignupState extends State<SignupView> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text('Already a member? '),
+                        const Text('Already a user? '),
                         InkWell(
                           child: const Text(
                             'Login',

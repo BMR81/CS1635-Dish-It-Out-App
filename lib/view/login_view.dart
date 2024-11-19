@@ -56,7 +56,7 @@ class _MyLoginState extends State<LoginView> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Poppins'), // Consistent font globally
+      theme: ThemeData(fontFamily: 'Quicksand'), // Consistent font globally
       home: Scaffold(
         body: Stack(
           children: [
