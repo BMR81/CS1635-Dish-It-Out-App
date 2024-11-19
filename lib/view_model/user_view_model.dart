@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:cs1635_dish_it_out_app/model/user_model.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 class UserViewModel {

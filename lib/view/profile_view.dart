@@ -1,12 +1,9 @@
-import 'package:cs1635_dish_it_out_app/model/user_model.dart';
-import 'package:cs1635_dish_it_out_app/view/login_view.dart';
 import 'package:cs1635_dish_it_out_app/view/saved_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
 import '../model/static_user.dart';
-import '../view_model/user_view_model.dart';
 import 'home_view.dart';
 import 'leaderboard_view.dart';
 import 'menu_view.dart';

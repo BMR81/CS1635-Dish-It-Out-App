@@ -1,5 +1,4 @@
 import 'package:cs1635_dish_it_out_app/model/static_restaurant_list.dart';
-import 'package:cs1635_dish_it_out_app/model/static_user.dart';
 import 'package:cs1635_dish_it_out_app/view/leaderboard_view.dart';
 import 'package:cs1635_dish_it_out_app/view/profile_view.dart';
 import 'package:cs1635_dish_it_out_app/view/saved_view.dart';
@@ -8,7 +7,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import '../view_model/user_view_model.dart';
 import 'menu_view.dart';
 
 class HomeView extends StatefulWidget {
