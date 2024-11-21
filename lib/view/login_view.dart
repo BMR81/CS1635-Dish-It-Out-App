@@ -29,16 +29,14 @@ class _MyLoginState extends State<LoginView>
   var _isObscured = true;
   var _isValid = false;
 
-  // Animation controller for single spin
   late AnimationController _animationController;
 
   @override
   void initState() {
     super.initState();
-    // Initialize AnimationController for a single spin
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2), // Duration for one full spin
+      duration: const Duration(seconds: 2),
     );
 
     // Start the animation when the screen opens
@@ -57,15 +55,15 @@ class _MyLoginState extends State<LoginView>
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Quicksand'), // Consistent font globally
+      theme: ThemeData(fontFamily: 'Quicksand'),
       home: Scaffold(
         body: Stack(
           children: [
             // Background image
             Positioned.fill(
               child: Image.asset(
-                'assets/images/background.png', // Replace with the path to your background image
-                fit: BoxFit.cover, // Ensure the image covers the entire screen
+                'assets/images/background.png',
+                fit: BoxFit.cover,
               ),
             ),
             // Login content

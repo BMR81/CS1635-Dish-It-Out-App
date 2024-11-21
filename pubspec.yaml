@@ -67,6 +67,10 @@ flutter:
     - assets/icons/dice.png
     - assets/icons/x_mark.png
     - assets/icons/check_mark.png
+    - assets/icons/x_mark1.png
+    - assets/icons/check_mark1.png
+    - assets/icons/like.png
+    - assets/icons/search.png
     # dish images
     - assets/images/pizza.png
     - assets/images/burger.png

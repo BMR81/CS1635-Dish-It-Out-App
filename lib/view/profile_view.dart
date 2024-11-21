@@ -92,7 +92,7 @@ class _MyProfileState extends State<ProfileView> {
                       ),
                     ),
                     Text(
-                      "1. $firstDish",
+                      "$firstDish",
                       style: TextStyle(
                         fontFamily: 'Quicksand',
                         fontSize: 20,
@@ -112,7 +112,7 @@ class _MyProfileState extends State<ProfileView> {
                       ),
                     ),
                     Text(
-                      "2. $secondDish",
+                      "$secondDish",
                       style: TextStyle(
                         fontFamily: 'Quicksand',
                         fontSize: 20,
@@ -132,7 +132,7 @@ class _MyProfileState extends State<ProfileView> {
                       ),
                     ),
                     Text(
-                      "3. $thirdDish",
+                      "$thirdDish",
                       style: TextStyle(
                         fontFamily: 'Quicksand',
                         fontSize: 20,

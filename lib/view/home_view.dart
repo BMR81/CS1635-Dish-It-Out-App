@@ -59,8 +59,8 @@ class _MyHomeState extends State<HomeView> {
                 IconButton(
                   icon: Image.asset(
                     "assets/icons/dice.png",
-                    width: 50,
-                    height: 50,
+                    width: 60,
+                    height: 60,
                   ),
                   padding: EdgeInsets.all(40),
                   onPressed: () {},
@@ -116,7 +116,7 @@ class _MyHomeState extends State<HomeView> {
                           : Colors.transparent,
                     ),
                     child: Image.asset(
-                      'assets/icons/x_mark.png',
+                      'assets/icons/x_mark1.png',
                       width: 150,
                       height: 150,
                       fit: BoxFit.contain,
@@ -153,7 +153,7 @@ class _MyHomeState extends State<HomeView> {
                           : Colors.transparent,
                     ),
                     child: Image.asset(
-                      'assets/icons/check_mark.png',
+                      'assets/icons/check_mark1.png',
                       width: 150,
                       height: 150,
                       fit: BoxFit.contain,
