@@ -82,7 +82,7 @@ class _MyRestaurantCardState extends State<RestaurantCardWidget> {
                         color: Colors.white,
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: Colors.grey, // Border color
+                          color: HexColor("#FEE0C4"), // Border color
                           width: 1.0, // Border thickness
                         ),
                       ),
@@ -114,7 +114,7 @@ class _MyRestaurantCardState extends State<RestaurantCardWidget> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10), 
             ],
           ),
         ],

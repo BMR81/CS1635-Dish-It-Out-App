@@ -45,22 +45,28 @@ class _MyHomeState extends State<HomeView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                  icon: Icon(Icons.search),
-                  iconSize: 50,
+                  icon: Image.asset(
+                  "assets/icons/search.png",
+                    width: 50,
+                    height: 50,
+                  ),
                   padding: EdgeInsets.all(40),
                   onPressed: () {},
                 ),
                 IconButton(
-                  icon: Icon(Icons.favorite_border),
-                  iconSize: 50,
+                  icon: Image.asset(
+                      "assets/icons/like.png",
+                    width: 50,
+                    height: 50,
+                  ),
                   padding: EdgeInsets.all(40),
                   onPressed: () {},
                 ),
                 IconButton(
                   icon: Image.asset(
                     "assets/icons/dice.png",
-                    width: 60,
-                    height: 60,
+                    width: 50,
+                    height: 50,
                   ),
                   padding: EdgeInsets.all(40),
                   onPressed: () {},
