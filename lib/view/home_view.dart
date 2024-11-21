@@ -3,7 +3,6 @@ import 'package:cs1635_dish_it_out_app/view/leaderboard_view.dart';
 import 'package:cs1635_dish_it_out_app/view/profile_view.dart';
 import 'package:cs1635_dish_it_out_app/view/saved_view.dart';
 import 'package:cs1635_dish_it_out_app/view/widgets/restaurant_card_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -19,10 +18,12 @@ class HomeView extends StatefulWidget {
 class _MyHomeState extends State<HomeView> {
   var _currentRestaurant = 0;
   var _numRestaurants = StaticRestaurantList.restaurants!.length;
-
   var _hasMore = true;
-
   var _currentIndex = 2;
+
+  // Track pressed state
+  bool _isXPressed = false;
+  bool _isCheckPressed = false;
 
   List<Route> viewList = [
     MaterialPageRoute(builder: (context) => MenuView()),
@@ -66,41 +67,37 @@ class _MyHomeState extends State<HomeView> {
                 ),
               ],
             ),
-            SizedBox(
-              height: 50,
-            ),
+            const SizedBox(height: 50),
             Container(
               child: _hasMore && _numRestaurants > 0
                   ? RestaurantCardWidget(
-                      restaurant: StaticRestaurantList.restaurants![0])
+                restaurant: StaticRestaurantList.restaurants![0],
+              )
                   : Padding(
-                      padding: EdgeInsets.symmetric(vertical: 100),
-                      child: Text(
-                        'Dish it out another time!',
-                        style: TextStyle(
-                            fontFamily: 'Quicksand',
-                            fontSize: 30,
-                            color: HexColor("00abff"),
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
+                padding: const EdgeInsets.symmetric(vertical: 100),
+                child: Text(
+                  'Dish it out another time!',
+                  style: TextStyle(
+                    fontFamily: 'Quicksand',
+                    fontSize: 30,
+                    color: HexColor("00abff"),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
-            SizedBox(
-              height: 50,
-            ),
+            const SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(
-                  icon: Icon(CupertinoIcons.xmark_circle),
-                  iconSize: 150,
-                  color: Colors.red,
-                  padding: EdgeInsets.all(20),
-                  onPressed: () {
+                GestureDetector(
+                  onTapDown: (_) => setState(() => _isXPressed = true),
+                  onTapUp: (_) {
+                    setState(() => _isXPressed = false);
                     if (_currentRestaurant != _numRestaurants - 1) {
                       setState(() {
                         StaticRestaurantList.restaurants?.removeAt(0);
-                        _currentRestaurant = _currentRestaurant + 1;
+                        _currentRestaurant++;
                       });
                     } else {
                       setState(() {
@@ -109,19 +106,33 @@ class _MyHomeState extends State<HomeView> {
                       });
                     }
                   },
+                  onTapCancel: () => setState(() => _isXPressed = false),
+                  child: Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: _isXPressed
+                          ? Colors.red.withOpacity(0.3)
+                          : Colors.transparent,
+                    ),
+                    child: Image.asset(
+                      'assets/icons/x_mark.png',
+                      width: 150,
+                      height: 150,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 ),
-                IconButton(
-                  icon: Icon(CupertinoIcons.check_mark_circled),
-                  iconSize: 150,
-                  color: Colors.green,
-                  padding: EdgeInsets.all(20),
-                  onPressed: () {
+                GestureDetector(
+                  onTapDown: (_) => setState(() => _isCheckPressed = true),
+                  onTapUp: (_) {
+                    setState(() => _isCheckPressed = false);
                     if (_currentRestaurant != _numRestaurants - 1) {
                       setState(() {
                         StaticRestaurantList.likedRestaurants
                             ?.add(StaticRestaurantList.restaurants![0]);
                         StaticRestaurantList.restaurants?.removeAt(0);
-                        _currentRestaurant = _currentRestaurant + 1;
+                        _currentRestaurant++;
                       });
                     } else {
                       setState(() {
@@ -132,6 +143,22 @@ class _MyHomeState extends State<HomeView> {
                       });
                     }
                   },
+                  onTapCancel: () => setState(() => _isCheckPressed = false),
+                  child: Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: _isCheckPressed
+                          ? Colors.green.withOpacity(0.3)
+                          : Colors.transparent,
+                    ),
+                    child: Image.asset(
+                      'assets/icons/check_mark.png',
+                      width: 150,
+                      height: 150,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 ),
               ],
             ),

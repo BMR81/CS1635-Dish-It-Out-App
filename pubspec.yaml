@@ -65,6 +65,8 @@ flutter:
   assets:
     # custom icons
     - assets/icons/dice.png
+    - assets/icons/x_mark.png
+    - assets/icons/check_mark.png
     # dish images
     - assets/images/pizza.png
     - assets/images/burger.png
