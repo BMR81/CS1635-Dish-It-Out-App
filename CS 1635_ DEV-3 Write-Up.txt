@@ -1,0 +1,49 @@
+﻿Dish It Out DEV-3: Alpha Prototype
+Set-Up Instructions
+IDE: Android Studio
+Preferred Device Emulator:
+* Android: Version 8.0 (API 26) or higher.
+* iOS: Version 13.0 or higher.
+
+Login Credentials
+We currently have two test users to use in order to explore our app! Each one showcases a different set of dish preferences. Here is the following information to successfully log in:
+* User 1
+   * Username: test1
+   * Password: test1
+* User 2
+   * Username: test2
+   * Password: test2
+We have functions that will validate existing users, hide/unhide passwords, and error messages to indicate if you either put in the wrong username or password or left either field empty.
+
+Once you’re in:
+After logging in, you will be directed to the home view. The home view shows the restaurant card widget, which holds restaurants geared towards the user’s preferences (as indicated in the top three dishes), as well as action buttons on the top and bottom.  Feel free to begin “liking” or “disliking” restaurants, and dish out some options! The green check button on the bottom right indicates that you “liked” a restaurant. The red X button on the bottom left indicates that you’re not interested in that restaurant and that restaurant will promptly be removed. The top action buttons are indicated by a search icon, “superlike” icon, and randomization icon. These specific icons currently hold no functionality since we were focused on enabling users to “like” or “dislike” restaurants.
+When selecting the details icon within the card widget, the user will be taken to the restaurant details review, where they can see information like a photo, name, total rating, and hours. 
+Liked restaurants are stored and displayed on the saved page, which you can navigate through the bottom navigation bar by pressing the heart icon. On the saved page, there is a list of restaurants that you indicated that you “liked”. On the top, you can toggle between the “liked” and “favorited” restaurants. The “favorited” page holds nothing at the moment.
+When you press the person icon on the bottom navigation bar, you will be taken to the profile page. The profile page will share an example of the test user that you logged in under. This page will share the user’s profile photo, name, top three dishes, and a log of past reviews. 
+As of right now, the leaderboard view, menu view, preferences view and review system are not implemented.
+
+View Models and Backend Logic
+The app currently utilizes two models (user_model and restaurant_model) and two view models (user_view_model and restaurant_view_model) to store the backend data and sync it with the frontend display.
+	* The user model contains a user object that stores important information like their username, email, password, preferences, etc. (this information will be collected during the signup process, which will be implemented for the final submission)
+	* The user_view_model fetches the list of users from a JSON file. The JSON file is currently static, only containing the two test users described above. However, we plan on having our signup process write new users to the JSON file to add new users
+When someone attempts to sign in, the user_view_model is called to verify that the entered credentials pertain to a registered user. If the user is verified, then they will be signed in and automatically navigated to the home page. Additionally, the current signed in user will be stored in a static variable (named currentUser), so that their unique information and preferences can be accessed across all subsequent pages/views
+The restaurant_model contains a restaurant object that holds information like the restaurant name, location, hours, image, rating, etc. We currently have a static JSON file of some sample restaurants that contain a handful of different dishes. The restaurant_view_model fetches the list of restaurants from this JSON file and then creates a list.
+Once a user successfully signs in, the restaurant_view_model will take their unique preferences and return the relevant restaurants in a list static variable (restaurants) so that the home view can generate the cards of restaurants it will recommend.
+
+Key Tasks Progress
+Key Task 1 (Restaurant Discovery)
+Progress: 80% completed
+	* Completed: Since this is at the heart of our app, we put all of our efforts into ensuring that the user will be able to go through different restaurants and save the ones they “liked”. 
+	* Pending: In terms of what is left is the review system that will enable users to make reviews and see other people’s reviews on the details page. The home view holds the most of this key task. Additionally, a stretch goal would be to include functionality of searching restaurant options through the search function (indicated by the search icon) and randomizing options for users who want to try something completely new (indicated by the dice icon).
+Key Task 2 (Unique Profile Creation)
+Progress: Almost completed
+	* Completed: With the test users, you are able to see what an existing user would experience when they log into the app. This is shown through the profile view. The sign up view is completed in terms of adding relevant fields (i.e. name/username/password).
+	* Pending: An important part that we’re working on right now is the preference view. This view will enable users to select potential dietary preferences as well as their top three dishes, which will be the basis of the restaurants they see on the home page and the creation of their profile page. We’re currently working on creating potential tags of example dish categories, limiting users to select three each.
+Key Task 3  (Leaderboard)
+Progress: NOT completed
+	This task has developed into more of a stretch goal since we believe that the lack of its implementation won’t take away from DIO’s purpose. We would like to have this key task as a fun way to encourage users to explore more options in their area, but felt that it’d be important to ensure that users are able to explore restaurants in the first place.
+
+Design Deviation
+Consolidation of “liked” and “favorited” in Saved Page
+This is not reflected in the current Github since this came from consultants’ insights from Tuesday. A common sentiment that came up involves questions on the difference between “liked” and “favorited” restaurants, as well as the distinction to have two separate lists on the saved page. After much consideration, we found that we weren’t able to justify separating the two and have decided to move forward to consolidate the two into one list of “liked restaurants”.
+Otherwise, we adhered to our original design pretty closely.
