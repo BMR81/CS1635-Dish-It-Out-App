@@ -47,28 +47,28 @@ class _MyHomeState extends State<HomeView> {
                 IconButton(
                   icon: Image.asset(
                   "assets/icons/search.png",
-                    width: 50,
-                    height: 50,
+                    width: 70,
+                    height: 70,
                   ),
-                  padding: EdgeInsets.all(40),
+                  padding: EdgeInsets.all(25),
                   onPressed: () {},
                 ),
                 IconButton(
                   icon: Image.asset(
                       "assets/icons/like.png",
-                    width: 50,
-                    height: 50,
+                    width: 70,
+                    height: 70,
                   ),
-                  padding: EdgeInsets.all(40),
+                  padding: EdgeInsets.all(25),
                   onPressed: () {},
                 ),
                 IconButton(
                   icon: Image.asset(
                     "assets/icons/dice.png",
-                    width: 50,
-                    height: 50,
+                    width: 70,
+                    height: 70,
                   ),
-                  padding: EdgeInsets.all(40),
+                  padding: EdgeInsets.all(25),
                   onPressed: () {},
                 ),
               ],
@@ -86,7 +86,7 @@ class _MyHomeState extends State<HomeView> {
                   style: TextStyle(
                     fontFamily: 'Quicksand',
                     fontSize: 30,
-                    color: HexColor("00abff"),
+                    color: HexColor("B22222"),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -173,7 +173,8 @@ class _MyHomeState extends State<HomeView> {
         bottomNavigationBar: BottomNavigationBar(
           showUnselectedLabels: false,
           selectedItemColor: Colors.white,
-          backgroundColor: HexColor('#00abff'),
+          unselectedItemColor: HexColor("#FF6347"),
+          backgroundColor: HexColor('#B22222'),
           type: BottomNavigationBarType.fixed,
           onTap: (int newIndex) {
             setState(() {

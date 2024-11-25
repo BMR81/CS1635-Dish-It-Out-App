@@ -97,6 +97,7 @@ flutter:
     - assets/images/dioLogo.png
     - assets/images/profilePhoto.png
     - assets/images/background.png
+    - assets/images/signup_background.png
     # json files for data
     - assets/datasets/users.json
     - assets/datasets/restaurants.json

@@ -25,16 +25,11 @@ class _MySignupState extends State<SignupView> {
         resizeToAvoidBottomInset: true,
         body: Stack(
           children: [
-            Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Color(0xFFCEEFFF),
-                    Colors.white,
-                  ],
-                ),
+            // Background Image
+            Positioned.fill(
+              child: Image.asset(
+                'assets/images/signup_background.png',
+                fit: BoxFit.cover,
               ),
             ),
             // Sign up content
@@ -44,13 +39,13 @@ class _MySignupState extends State<SignupView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 80),
                     Text(
                       'Sign up',
                       style: TextStyle(
                         fontFamily: "Quicksand",
                         fontSize: 40,
-                        color: HexColor('#00abff'),
+                        color: HexColor("#B22222"),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -64,7 +59,7 @@ class _MySignupState extends State<SignupView> {
                             TextFormField(
                               keyboardType: TextInputType.text,
                               decoration:
-                                  _inputDecoration('Name', 'Enter your name'),
+                              _inputDecoration('Name', 'Enter your name'),
                               validator: (enteredName) {
                                 return enteredName!.isEmpty
                                     ? 'Please enter your name'
@@ -86,7 +81,7 @@ class _MySignupState extends State<SignupView> {
                             TextFormField(
                               keyboardType: TextInputType.emailAddress,
                               decoration:
-                                  _inputDecoration('Email', 'Enter your email'),
+                              _inputDecoration('Email', 'Enter your email'),
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return 'Please enter your email';
@@ -113,7 +108,7 @@ class _MySignupState extends State<SignupView> {
                                   onPressed: () {
                                     setState(() {
                                       _passwordIsObscured =
-                                          !_passwordIsObscured;
+                                      !_passwordIsObscured;
                                     });
                                   },
                                 ),
@@ -140,7 +135,7 @@ class _MySignupState extends State<SignupView> {
                                   onPressed: () {
                                     setState(() {
                                       _confirmPasswordIsObscured =
-                                          !_confirmPasswordIsObscured;
+                                      !_confirmPasswordIsObscured;
                                     });
                                   },
                                 ),
@@ -163,13 +158,12 @@ class _MySignupState extends State<SignupView> {
                                 elevation: 5,
                               ).copyWith(
                                 backgroundColor:
-                                    WidgetStateProperty.resolveWith<Color>(
-                                  (Set<WidgetState> states) {
+                                WidgetStateProperty.resolveWith<Color>(
+                                      (Set<WidgetState> states) {
                                     if (states.contains(WidgetState.pressed)) {
-                                      return HexColor(
-                                          "FF5400"); // Orange when pressed
+                                      return HexColor("FF6347");
                                     }
-                                    return HexColor("#00abff"); // blue
+                                    return HexColor("B22222");
                                   },
                                 ),
                                 foregroundColor: WidgetStateProperty.all(
@@ -196,13 +190,20 @@ class _MySignupState extends State<SignupView> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text('Already a user? '),
+                        Text(
+                          'Already a user? ',
+                          style: TextStyle(
+                              color: HexColor("#B22222"),
+                              fontSize: 16,
+                          ),
+                        ),
                         InkWell(
-                          child: const Text(
+                          child: Text(
                             'Login',
                             style: TextStyle(
                               decoration: TextDecoration.underline,
-                              color: Colors.blue,
+                              color: HexColor("#FF6347"),
+                              fontSize: 16,
                             ),
                           ),
                           onTap: () {
@@ -236,7 +237,7 @@ class _MySignupState extends State<SignupView> {
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
         borderSide:
-            const BorderSide(color: Colors.grey, width: 2.0), // focused gray
+        const BorderSide(color: Colors.grey, width: 2.0),
       ),
       fillColor: Colors.white,
       filled: true,

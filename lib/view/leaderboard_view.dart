@@ -47,7 +47,7 @@ class _MyLeaderboardState extends State<LeaderboardView> {
         bottomNavigationBar: BottomNavigationBar(
           showUnselectedLabels: false,
           selectedItemColor: Colors.white,
-          backgroundColor: HexColor('#00abff'),
+          backgroundColor: HexColor('#B22222'),
           type: BottomNavigationBarType.fixed,
           onTap: (int newIndex) {
             setState(() {

@@ -50,7 +50,7 @@ class _MyProfileState extends State<ProfileView> {
               ),
             ),
             Text(
-              StaticUser.user!.username.toString(),
+              StaticUser.user!.name.toString(),
               style: TextStyle(
                   fontFamily: 'Quicksand',
                   fontSize: 40,
@@ -92,7 +92,7 @@ class _MyProfileState extends State<ProfileView> {
                       ),
                     ),
                     Text(
-                      "$firstDish",
+                      "${firstDish.toUpperCase()}",
                       style: TextStyle(
                         fontFamily: 'Quicksand',
                         fontSize: 20,
@@ -112,7 +112,7 @@ class _MyProfileState extends State<ProfileView> {
                       ),
                     ),
                     Text(
-                      "$secondDish",
+                      "${secondDish.toUpperCase()}",
                       style: TextStyle(
                         fontFamily: 'Quicksand',
                         fontSize: 20,
@@ -132,7 +132,7 @@ class _MyProfileState extends State<ProfileView> {
                       ),
                     ),
                     Text(
-                      "$thirdDish",
+                      "${thirdDish.toUpperCase()}",
                       style: TextStyle(
                         fontFamily: 'Quicksand',
                         fontSize: 20,
@@ -167,9 +167,9 @@ class _MyProfileState extends State<ProfileView> {
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
-          showUnselectedLabels: false,
-          selectedItemColor: Colors.white,
-          backgroundColor: HexColor('#00abff'),
+          selectedItemColor: HexColor("#F5F5F5"),
+          unselectedItemColor: HexColor("#FF6347"),
+          backgroundColor: HexColor('#B22222'),
           type: BottomNavigationBarType.fixed,
           onTap: (int newIndex) {
             setState(() {

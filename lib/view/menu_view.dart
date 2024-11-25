@@ -47,7 +47,8 @@ class _MyMenuState extends State<MenuView> {
         bottomNavigationBar: BottomNavigationBar(
           showUnselectedLabels: false,
           selectedItemColor: Colors.white,
-          backgroundColor: HexColor('#00abff'),
+          unselectedItemColor: HexColor("#FF6347"),
+          backgroundColor: HexColor('#B22222'),
           type: BottomNavigationBarType.fixed,
           onTap: (int newIndex) {
             setState(() {

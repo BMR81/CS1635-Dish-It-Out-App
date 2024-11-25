@@ -71,17 +71,19 @@ class _MyLoginState extends State<LoginView>
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 150),
+                const SizedBox(height: 175),
                 // App logo or title
                 RotationTransition(
                   turns: _animationController, // Apply rotation animation
                   child: Image.asset(
                     'assets/images/dioLogo.png', // Replace with your dioLogo.png path
-                    height: 250, // Adjust size as needed
-                    width: 500,
+                    height: 300, // Adjust size as needed
+                    width: 600,
                   ),
                 ),
-                const SizedBox(height: 20),
+/*
+                const SizedBox(height: 10),
+*/
                 // Login form
                 Expanded(
                   child: SingleChildScrollView(
@@ -95,10 +97,10 @@ class _MyLoginState extends State<LoginView>
                           children: [
                             // Login title
                             Text(
-                              'Login',
+                              'Dish It Out!',
                               style: TextStyle(
                                 fontSize: 40,
-                                color: HexColor("00abff"),
+                                color: HexColor("#B22222"),
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -175,7 +177,7 @@ class _MyLoginState extends State<LoginView>
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
-                                    HexColor("00abff"), // Default blue
+                                    HexColor("#B22222"),
                                 foregroundColor: Colors.white, // Text color
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -186,10 +188,9 @@ class _MyLoginState extends State<LoginView>
                                     WidgetStateProperty.resolveWith<Color>(
                                   (Set<WidgetState> states) {
                                     if (states.contains(WidgetState.pressed)) {
-                                      return HexColor(
-                                          "FF5400"); // Orange when pressed
+                                      return HexColor("#FF6347");
                                     }
-                                    return HexColor("00abff"); // Default color
+                                    return HexColor("#B22222");
                                   },
                                 ),
                               ),
@@ -221,13 +222,19 @@ class _MyLoginState extends State<LoginView>
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const Text('New user? '),
+                                Text(
+                                  'New user? ',
+                                  style: TextStyle(
+                                    color: HexColor("#B22222"),
+                                    fontSize: 16,
+                                  ),
+                                ),
                                 InkWell(
-                                  child: const Text(
+                                  child: Text(
                                     'Sign up',
                                     style: TextStyle(
                                       decoration: TextDecoration.underline,
-                                      color: Colors.blue,
+                                      color: HexColor("#FF6347"),
                                     ),
                                   ),
                                   onTap: () {
