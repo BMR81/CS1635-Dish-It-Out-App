@@ -98,6 +98,8 @@ flutter:
     - assets/images/profilePhoto.png
     - assets/images/background.png
     - assets/images/signup_background.png
+    - assets/images/owen.png
+    - assets/images/profileBackground.png
     # json files for data
     - assets/datasets/users.json
     - assets/datasets/restaurants.json

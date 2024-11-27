@@ -1,7 +1,6 @@
 import 'package:cs1635_dish_it_out_app/view/saved_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:simple_shadow/simple_shadow.dart';
 
 import '../model/static_user.dart';
 import 'home_view.dart';
@@ -34,139 +33,98 @@ class _MyProfileState extends State<ProfileView> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        body: Stack(
           children: [
-            SimpleShadow(
-              color: Colors.black,
-              opacity: 1,
-              sigma: 1,
-              offset: const Offset(0, 0),
+            // Background 
+            Positioned.fill(
               child: Image.asset(
-                'assets/images/profilePhoto.png',
-                height: 150,
-                width: 300,
+                'assets/images/profileBackground.png', 
+                fit: BoxFit.cover,
               ),
             ),
-            Text(
-              StaticUser.user!.name.toString(),
-              style: TextStyle(
-                  fontFamily: 'Quicksand',
-                  fontSize: 40,
-                  color: HexColor("00abff"),
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Divider(
-              color: Colors.black,
-            ),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Text(
-                  "Favorite Dishes",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      fontFamily: 'Quicksand',
-                      fontSize: 25,
-                      color: HexColor("00abff"),
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            Row(
+            // UI ELements upfront
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Image.asset(
-                        'assets/images/$firstDish.png',
-                        height: 100,
-                        width: 100,
-                      ),
-                    ),
-                    Text(
-                      "${firstDish.toUpperCase()}",
+                CircleAvatar(
+                  radius: 80,
+                  backgroundColor: HexColor("B22222"),
+                  child: CircleAvatar(
+                    radius: 75,
+                    backgroundImage: AssetImage('assets/images/profilePhoto.png'),
+                  ),
+                ),
+                Text(
+                  StaticUser.user!.name.toString(),
+                  style: TextStyle(
+                    fontFamily: 'Quicksand',
+                    fontSize: 40,
+                    color: HexColor("B22222"),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 30),
+                Divider(color: Colors.white),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      "Favorite Dishes",
+                      textAlign: TextAlign.left,
                       style: TextStyle(
                         fontFamily: 'Quicksand',
-                        fontSize: 20,
-                        color: HexColor("00abff"),
+                        fontSize: 25,
+                        color: HexColor("B22222"),
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildDishColumn(firstDish),
+                    _buildDishColumn(secondDish),
+                    _buildDishColumn(thirdDish),
                   ],
                 ),
-                Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Image.asset(
-                        'assets/images/$secondDish.png',
-                        height: 100,
-                        width: 100,
-                      ),
-                    ),
-                    Text(
-                      "${secondDish.toUpperCase()}",
+                Divider(color: Colors.white),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      "Review Log",
+                      textAlign: TextAlign.left,
                       style: TextStyle(
                         fontFamily: 'Quicksand',
-                        fontSize: 20,
-                        color: HexColor("00abff"),
+                        fontSize: 25,
+                        color: HexColor("B22222"),
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ],
+                  ),
                 ),
-                Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Image.asset(
-                        'assets/images/$thirdDish.png',
-                        height: 100,
-                        width: 100,
-                      ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: Text(
+                    "Savor the memories. Start reviewing!",
+                    style: TextStyle(
+                      fontFamily: 'Quicksand',
+                      fontSize: 18,
+                      color: HexColor("B22222"),
                     ),
-                    Text(
-                      "${thirdDish.toUpperCase()}",
-                      style: TextStyle(
-                        fontFamily: 'Quicksand',
-                        fontSize: 20,
-                        color: HexColor("00abff"),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ],
-            ),
-            Divider(
-              color: Colors.black,
-            ),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Text(
-                  "Review Log (coming soon)",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      fontFamily: 'Quicksand',
-                      fontSize: 25,
-                      color: HexColor("00abff"),
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 200,
             ),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
+          showUnselectedLabels: false,
           selectedItemColor: HexColor("#F5F5F5"),
           unselectedItemColor: HexColor("#FF6347"),
           backgroundColor: HexColor('#B22222'),
@@ -203,6 +161,29 @@ class _MyProfileState extends State<ProfileView> {
           ],
         ),
       ),
+    );
+  }
+
+  Column _buildDishColumn(String dishName) {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: Image.asset(
+            'assets/images/$dishName.png',
+            height: 100,
+            width: 100,
+          ),
+        ),
+        Text(
+          dishName.toUpperCase(),
+          style: TextStyle(
+            fontFamily: 'Quicksand',
+            fontSize: 20,
+            color: HexColor("B22222"),
+          ),
+        ),
+      ],
     );
   }
 }

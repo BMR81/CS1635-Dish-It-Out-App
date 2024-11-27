@@ -122,7 +122,7 @@ class _MyHomeState extends State<HomeView> {
                           : Colors.transparent,
                     ),
                     child: Image.asset(
-                      'assets/icons/x_mark.png',
+                      'assets/icons/x_mark1.png',
                       width: 150,
                       height: 150,
                       fit: BoxFit.contain,
@@ -159,7 +159,7 @@ class _MyHomeState extends State<HomeView> {
                           : Colors.transparent,
                     ),
                     child: Image.asset(
-                      'assets/icons/check_mark.png',
+                      'assets/icons/check_mark1.png',
                       width: 150,
                       height: 150,
                       fit: BoxFit.contain,

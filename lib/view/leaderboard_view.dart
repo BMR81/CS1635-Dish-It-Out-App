@@ -38,7 +38,7 @@ class _MyLeaderboardState extends State<LeaderboardView> {
                 style: TextStyle(
                     fontFamily: 'Quicksand',
                     fontSize: 30,
-                    color: HexColor("00abff"),
+                    color: HexColor("B22222"),
                     fontWeight: FontWeight.bold),
               ),
             ],
@@ -48,6 +48,7 @@ class _MyLeaderboardState extends State<LeaderboardView> {
           showUnselectedLabels: false,
           selectedItemColor: Colors.white,
           backgroundColor: HexColor('#B22222'),
+          unselectedItemColor: HexColor("#FF6347"),
           type: BottomNavigationBarType.fixed,
           onTap: (int newIndex) {
             setState(() {

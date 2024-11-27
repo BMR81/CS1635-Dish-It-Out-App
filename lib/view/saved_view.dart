@@ -44,19 +44,19 @@ class _MySavedState extends State<SavedView> {
                 style: TextStyle(
                     fontFamily: 'Quicksand',
                     fontSize: 30,
-                    color: HexColor("00abff"),
+                    color: HexColor("B22222"),
                     fontWeight: FontWeight.bold),
               ),
             ),
             bottom: TabBar(
-              indicatorColor: HexColor("ff5400"),
-              labelColor: HexColor("ff5400"),
+              indicatorColor: HexColor("#FF6347"),
+              labelColor: HexColor("#FF6347"),
               tabs: [
                 Tab(
                   child: Text(
                     'Liked',
                     style: TextStyle(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Quicksand',
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
@@ -65,7 +65,7 @@ class _MySavedState extends State<SavedView> {
                   child: Text(
                     'Favorites',
                     style: TextStyle(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Quicksand',
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
@@ -87,11 +87,12 @@ class _MySavedState extends State<SavedView> {
                       child: Padding(
                         padding: EdgeInsets.symmetric(vertical: 40),
                         child: Text(
-                          'Go like some restaurants!',
+                          'Nothing here yet. Swipe to save your likes!',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                               fontFamily: 'Quicksand',
                               fontSize: 30,
-                              color: HexColor("00abff"),
+                              color: HexColor("B22222"),
                               fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -102,11 +103,11 @@ class _MySavedState extends State<SavedView> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 40),
                   child: Text(
-                    'Favorites coming soon',
+                    'No favorites yet!',
                     style: TextStyle(
                         fontFamily: 'Quicksand',
                         fontSize: 30,
-                        color: HexColor("00abff"),
+                        color: HexColor("B22222"),
                         fontWeight: FontWeight.bold),
                   ),
                 ),

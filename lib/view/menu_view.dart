@@ -38,7 +38,7 @@ class _MyMenuState extends State<MenuView> {
                 style: TextStyle(
                     fontFamily: 'Quicksand',
                     fontSize: 30,
-                    color: HexColor("00abff"),
+                    color: HexColor("B22222"),
                     fontWeight: FontWeight.bold),
               ),
             ],
