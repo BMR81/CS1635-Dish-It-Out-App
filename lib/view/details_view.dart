@@ -148,11 +148,6 @@ class _MyDetailsState extends State<DetailsView> {
               padding: EdgeInsets.only(left: 15),
               child: Column(
                 children: [
-                  Image.asset(
-                    'assets/images/${widget.restaurant.dish.toString()}.png',
-                    height: 100,
-                    width: 100,
-                  ),
                   Text(
                     widget.restaurant.dish.toString().toUpperCase(),
                     textAlign: TextAlign.left,
@@ -169,12 +164,12 @@ class _MyDetailsState extends State<DetailsView> {
             ),
             Center(
               child: Text(
-                "Reviews (coming soon)",
+                "No reviews yet!",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     fontFamily: 'Quicksand',
                     fontSize: 25,
-                    color: HexColor("00abff"),
+                    color: HexColor("B22222"),
                     fontWeight: FontWeight.bold),
               ),
             ),

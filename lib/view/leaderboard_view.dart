@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import 'home_view.dart';
-import 'menu_view.dart';
+//import 'menu_view.dart';
 
 class LeaderboardView extends StatefulWidget {
   const LeaderboardView({Key? key}) : super(key: key);
@@ -14,10 +14,10 @@ class LeaderboardView extends StatefulWidget {
 }
 
 class _MyLeaderboardState extends State<LeaderboardView> {
-  var _currentIndex = 1;
+  var _currentIndex = 0;
 
   List<Route> viewList = [
-    MaterialPageRoute(builder: (context) => MenuView()),
+    //MaterialPageRoute(builder: (context) => MenuView()),
     MaterialPageRoute(builder: (context) => LeaderboardView()),
     MaterialPageRoute(builder: (context) => HomeView()),
     MaterialPageRoute(builder: (context) => SavedView()),
@@ -59,10 +59,10 @@ class _MyLeaderboardState extends State<LeaderboardView> {
           },
           currentIndex: _currentIndex,
           items: const [
-            BottomNavigationBarItem(
+/*            BottomNavigationBarItem(
               icon: Icon(Icons.menu),
               label: 'Menu',
-            ),
+            ),*/
             BottomNavigationBarItem(
               icon: Icon(Icons.people),
               label: 'Leaderboard',

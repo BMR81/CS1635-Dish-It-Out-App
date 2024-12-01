@@ -6,7 +6,7 @@ import 'package:hexcolor/hexcolor.dart';
 import '../model/static_restaurant_list.dart';
 import 'home_view.dart';
 import 'leaderboard_view.dart';
-import 'menu_view.dart';
+//import 'menu_view.dart';
 
 class SavedView extends StatefulWidget {
   const SavedView({Key? key}) : super(key: key);
@@ -16,10 +16,10 @@ class SavedView extends StatefulWidget {
 }
 
 class _MySavedState extends State<SavedView> {
-  var _currentIndex = 3;
+  var _currentIndex = 2;
 
   List<Route> viewList = [
-    MaterialPageRoute(builder: (context) => MenuView()),
+    //MaterialPageRoute(builder: (context) => MenuView()),
     MaterialPageRoute(builder: (context) => LeaderboardView()),
     MaterialPageRoute(builder: (context) => HomeView()),
     MaterialPageRoute(builder: (context) => SavedView()),
@@ -129,10 +129,10 @@ class _MySavedState extends State<SavedView> {
             },
             currentIndex: _currentIndex,
             items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.menu),
-                label: 'Menu',
-              ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.menu),
+              //   label: 'Menu',
+              // ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.people),
                 label: 'Leaderboard',

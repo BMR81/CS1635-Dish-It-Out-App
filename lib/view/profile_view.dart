@@ -5,7 +5,7 @@ import 'package:hexcolor/hexcolor.dart';
 import '../model/static_user.dart';
 import 'home_view.dart';
 import 'leaderboard_view.dart';
-import 'menu_view.dart';
+//import 'menu_view.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({Key? key}) : super(key: key);
@@ -19,10 +19,10 @@ class _MyProfileState extends State<ProfileView> {
   String secondDish = StaticUser.user!.secondDish.toString();
   String thirdDish = StaticUser.user!.thirdDish.toString();
 
-  var _currentIndex = 4;
+  var _currentIndex = 3;
 
   List<Route> viewList = [
-    MaterialPageRoute(builder: (context) => MenuView()),
+    //MaterialPageRoute(builder: (context) => MenuView()),
     MaterialPageRoute(builder: (context) => LeaderboardView()),
     MaterialPageRoute(builder: (context) => HomeView()),
     MaterialPageRoute(builder: (context) => SavedView()),
@@ -42,7 +42,7 @@ class _MyProfileState extends State<ProfileView> {
                 fit: BoxFit.cover,
               ),
             ),
-            // UI ELements upfront
+            // UI Elements upfront
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,7 +71,7 @@ class _MyProfileState extends State<ProfileView> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      "Favorite Dishes",
+                      "Top Dishes",
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontFamily: 'Quicksand',
@@ -138,10 +138,10 @@ class _MyProfileState extends State<ProfileView> {
           },
           currentIndex: _currentIndex,
           items: const [
-            BottomNavigationBarItem(
+/*            BottomNavigationBarItem(
               icon: Icon(Icons.menu),
               label: 'Menu',
-            ),
+            ),*/
             BottomNavigationBarItem(
               icon: Icon(Icons.people),
               label: 'Leaderboard',

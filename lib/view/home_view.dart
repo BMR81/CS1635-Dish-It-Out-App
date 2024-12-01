@@ -6,7 +6,7 @@ import 'package:cs1635_dish_it_out_app/view/widgets/restaurant_card_widget.dart'
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import 'menu_view.dart';
+//import 'menu_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -19,14 +19,14 @@ class _MyHomeState extends State<HomeView> {
   var _currentRestaurant = 0;
   var _numRestaurants = StaticRestaurantList.restaurants!.length;
   var _hasMore = true;
-  var _currentIndex = 2;
+  var _currentIndex = 1;
 
   // Track pressed state
   bool _isXPressed = false;
   bool _isCheckPressed = false;
 
   List<Route> viewList = [
-    MaterialPageRoute(builder: (context) => MenuView()),
+    //MaterialPageRoute(builder: (context) => MenuView()),
     MaterialPageRoute(builder: (context) => LeaderboardView()),
     MaterialPageRoute(builder: (context) => HomeView()),
     MaterialPageRoute(builder: (context) => SavedView()),
@@ -184,10 +184,10 @@ class _MyHomeState extends State<HomeView> {
           },
           currentIndex: _currentIndex,
           items: const [
-            BottomNavigationBarItem(
+/*            BottomNavigationBarItem(
               icon: Icon(Icons.menu),
               label: 'Menu',
-            ),
+            ),*/
             BottomNavigationBarItem(
               icon: Icon(Icons.people),
               label: 'Leaderboard',
