@@ -1,7 +1,4 @@
 import 'package:cs1635_dish_it_out_app/model/static_restaurant_list.dart';
-import 'package:cs1635_dish_it_out_app/view/leaderboard_view.dart';
-import 'package:cs1635_dish_it_out_app/view/profile_view.dart';
-import 'package:cs1635_dish_it_out_app/view/saved_view.dart';
 import 'package:cs1635_dish_it_out_app/view/widgets/restaurant_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -19,19 +16,10 @@ class _MyHomeState extends State<HomeView> {
   var _currentRestaurant = 0;
   var _numRestaurants = StaticRestaurantList.restaurants!.length;
   var _hasMore = true;
-  var _currentIndex = 1;
 
   // Track pressed state
   bool _isXPressed = false;
   bool _isCheckPressed = false;
-
-  List<Route> viewList = [
-    //MaterialPageRoute(builder: (context) => MenuView()),
-    MaterialPageRoute(builder: (context) => LeaderboardView()),
-    MaterialPageRoute(builder: (context) => HomeView()),
-    MaterialPageRoute(builder: (context) => SavedView()),
-    MaterialPageRoute(builder: (context) => ProfileView()),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -167,42 +155,6 @@ class _MyHomeState extends State<HomeView> {
                   ),
                 ),
               ],
-            ),
-          ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          showUnselectedLabels: false,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: HexColor("#FF6347"),
-          backgroundColor: HexColor('#B22222'),
-          type: BottomNavigationBarType.fixed,
-          onTap: (int newIndex) {
-            setState(() {
-              _currentIndex = newIndex;
-              Navigator.push(context, viewList[newIndex]);
-            });
-          },
-          currentIndex: _currentIndex,
-          items: const [
-/*            BottomNavigationBarItem(
-              icon: Icon(Icons.menu),
-              label: 'Menu',
-            ),*/
-            BottomNavigationBarItem(
-              icon: Icon(Icons.people),
-              label: 'Leaderboard',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_border),
-              label: 'Saved',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
             ),
           ],
         ),

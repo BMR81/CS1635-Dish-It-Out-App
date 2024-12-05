@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../view_model/user_view_model.dart';
-import 'home_view.dart';
+import 'home_page_view.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -205,7 +205,7 @@ class _MyLoginState extends State<LoginView>
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => HomeView()),
+                                        builder: (context) => HomePageView()),
                                   );
                                 }
                               },

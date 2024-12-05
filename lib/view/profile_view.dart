@@ -1,11 +1,7 @@
-import 'package:cs1635_dish_it_out_app/view/saved_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../model/static_user.dart';
-import 'home_view.dart';
-import 'leaderboard_view.dart';
-//import 'menu_view.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({Key? key}) : super(key: key);
@@ -19,20 +15,13 @@ class _MyProfileState extends State<ProfileView> {
   String secondDish = StaticUser.user!.secondDish.toString();
   String thirdDish = StaticUser.user!.thirdDish.toString();
 
-  var _currentIndex = 3;
-
-  List<Route> viewList = [
-    //MaterialPageRoute(builder: (context) => MenuView()),
-    MaterialPageRoute(builder: (context) => LeaderboardView()),
-    MaterialPageRoute(builder: (context) => HomeView()),
-    MaterialPageRoute(builder: (context) => SavedView()),
-    MaterialPageRoute(builder: (context) => ProfileView()),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        endDrawer: Drawer(
+
+        ),
         body: Stack(
           children: [
             // Background 
@@ -120,43 +109,6 @@ class _MyProfileState extends State<ProfileView> {
                   ),
                 ),
               ],
-            ),
-          ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          showUnselectedLabels: false,
-          selectedItemColor: HexColor("#F5F5F5"),
-          unselectedItemColor: HexColor("#FF6347"),
-          backgroundColor: HexColor('#B22222'),
-          type: BottomNavigationBarType.fixed,
-          onTap: (int newIndex) {
-            setState(() {
-              _currentIndex = newIndex;
-              Navigator.pop(context);
-              Navigator.push(context, viewList[newIndex]);
-            });
-          },
-          currentIndex: _currentIndex,
-          items: const [
-/*            BottomNavigationBarItem(
-              icon: Icon(Icons.menu),
-              label: 'Menu',
-            ),*/
-            BottomNavigationBarItem(
-              icon: Icon(Icons.people),
-              label: 'Leaderboard',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_border),
-              label: 'Saved',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
             ),
           ],
         ),
