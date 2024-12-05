@@ -1,6 +1,10 @@
+import 'package:cs1635_dish_it_out_app/model/static_user.dart';
+import 'package:cs1635_dish_it_out_app/view/preferences_view.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+
+import '../view_model/user_view_model.dart';
 
 class SignupView extends StatefulWidget {
   const SignupView({Key? key}) : super(key: key);
@@ -10,12 +14,17 @@ class SignupView extends StatefulWidget {
 }
 
 class _MySignupState extends State<SignupView> {
+  var _userViewModel = UserViewModel();
+
   final _passwordcontroller = TextEditingController();
   final _confirmpasswordcontroller = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   var _passwordIsObscured = true;
   var _confirmPasswordIsObscured = true;
+
+  var _isUniqueUsername = false;
+  var _isUniqueEmail = false;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +69,9 @@ class _MySignupState extends State<SignupView> {
                               keyboardType: TextInputType.text,
                               decoration:
                               _inputDecoration('Name', 'Enter your name'),
+                              onChanged: (String enteredName){
+                                StaticUser.newUser?.name = enteredName;
+                              },
                               validator: (enteredName) {
                                 return enteredName!.isEmpty
                                     ? 'Please enter your name'
@@ -71,10 +83,18 @@ class _MySignupState extends State<SignupView> {
                               keyboardType: TextInputType.text,
                               decoration: _inputDecoration(
                                   'Username', 'Enter your username'),
+                              onChanged: (String enteredUsername) async {
+                                _isUniqueUsername = await _userViewModel.validateNewUsername(
+                                    enteredUsername);
+                                StaticUser.newUser?.username = enteredUsername;
+                              },
                               validator: (enteredUsername) {
-                                return enteredUsername!.isEmpty
-                                    ? 'Please enter your username'
-                                    : null;
+                                if (enteredUsername == null || enteredUsername.isEmpty) {
+                                  return 'Please enter username';
+                                } else if (!_isUniqueUsername) {
+                                  return 'Username already in use';
+                                }
+                                return null;
                               },
                             ),
                             const SizedBox(height: 20),
@@ -82,11 +102,18 @@ class _MySignupState extends State<SignupView> {
                               keyboardType: TextInputType.emailAddress,
                               decoration:
                               _inputDecoration('Email', 'Enter your email'),
-                              validator: (value) {
-                                if (value!.isEmpty) {
+                              onChanged: (String enteredEmail) async {
+                                _isUniqueEmail = await _userViewModel.validateNewEmail(
+                                    enteredEmail);
+                                StaticUser.newUser?.email = enteredEmail;
+                              },
+                              validator: (enteredEmail) {
+                                if (enteredEmail!.isEmpty) {
                                   return 'Please enter your email';
-                                } else if (!EmailValidator.validate(value)) {
+                                } else if (!EmailValidator.validate(enteredEmail)) {
                                   return 'Please enter a valid email';
+                                } else if (!_isUniqueEmail) {
+                                  return 'Email already in use';
                                 }
                                 return null;
                               },
@@ -113,6 +140,9 @@ class _MySignupState extends State<SignupView> {
                                   },
                                 ),
                               ),
+                              onChanged: (String enteredPassword){
+                                StaticUser.newUser?.password = enteredPassword;
+                              },
                               validator: (value) {
                                 return value!.isEmpty
                                     ? 'Please enter your password'
@@ -171,7 +201,13 @@ class _MySignupState extends State<SignupView> {
                                 ),
                               ),
                               onPressed: () {
-                                if (_formKey.currentState!.validate()) {}
+                                if (_formKey.currentState!.validate()) {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => PreferencesView()),
+                                  );
+                                }
                               },
                               child: const Text(
                                 'Next',

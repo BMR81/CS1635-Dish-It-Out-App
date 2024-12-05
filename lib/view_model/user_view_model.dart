@@ -20,7 +20,6 @@ class UserViewModel {
     for (var user in users) {
       if (username == user.username && password == user.password) {
         currentUser = user;
-        print(currentUser.username.toString());
         return true;
       }
     }
@@ -28,7 +27,29 @@ class UserViewModel {
   }
 
   user_model getCurrentUser() {
-    print(currentUser.username.toString());
     return currentUser;
   }
+
+  Future<bool> validateNewUsername(String username) async {
+    List<user_model> users = await fetchUsers();
+
+    for (var user in users) {
+      if (username == user.username) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  Future<bool> validateNewEmail(String email) async {
+    List<user_model> users = await fetchUsers();
+
+    for (var user in users) {
+      if (email == user.email) {
+        return false;
+      }
+    }
+    return true;
+  }
+
 }

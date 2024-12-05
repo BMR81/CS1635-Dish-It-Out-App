@@ -1,6 +1,8 @@
+import 'package:cs1635_dish_it_out_app/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import '../model/static_restaurant_list.dart';
 import '../model/static_user.dart';
 
 class ProfileView extends StatefulWidget {
@@ -11,6 +13,8 @@ class ProfileView extends StatefulWidget {
 }
 
 class _MyProfileState extends State<ProfileView> {
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   String firstDish = StaticUser.user!.firstDish.toString();
   String secondDish = StaticUser.user!.secondDish.toString();
   String thirdDish = StaticUser.user!.thirdDish.toString();
@@ -19,19 +23,84 @@ class _MyProfileState extends State<ProfileView> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        key: _scaffoldKey,
         endDrawer: Drawer(
-
+          child: Column(
+            children: [
+              SafeArea(
+                child: Text(
+                  "User Options",
+                  style: TextStyle(
+                    fontFamily: 'Quicksand',
+                    fontSize: 40,
+                    color: HexColor("B22222"),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Spacer(),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 20),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: HexColor("#B22222"),
+                    foregroundColor: Colors.white, // Text color
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    elevation: 5, // Elevation for shadow effect
+                  ).copyWith(
+                    backgroundColor: WidgetStateProperty.resolveWith<Color>(
+                      (Set<WidgetState> states) {
+                        if (states.contains(WidgetState.pressed)) {
+                          return HexColor("#FF6347");
+                        }
+                        return HexColor("#B22222");
+                      },
+                    ),
+                  ),
+                  onPressed: () {
+                    StaticRestaurantList.likedRestaurants?.clear();
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginView()),
+                    );
+                  },
+                  child: const Text(
+                    'Log Out',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
         body: Stack(
           children: [
-            // Background 
+            // Background
             Positioned.fill(
               child: Image.asset(
-                'assets/images/profileBackground.png', 
+                'assets/images/profileBackground.png',
                 fit: BoxFit.cover,
               ),
             ),
             // UI Elements upfront
+            Align(
+              alignment: Alignment.topRight,
+              child: SafeArea(
+                child: IconButton(
+                  icon: Icon(Icons.menu),
+                  color: Colors.white,
+                  onPressed: () {
+                    _scaffoldKey.currentState?.openEndDrawer();
+                  },
+                ),
+              ),
+            ),
+
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -41,7 +110,8 @@ class _MyProfileState extends State<ProfileView> {
                   backgroundColor: HexColor("B22222"),
                   child: CircleAvatar(
                     radius: 75,
-                    backgroundImage: AssetImage('assets/images/profilePhoto.png'),
+                    backgroundImage:
+                        AssetImage('assets/images/profilePhoto.png'),
                   ),
                 ),
                 Text(

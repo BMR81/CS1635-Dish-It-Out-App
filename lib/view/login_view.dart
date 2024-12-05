@@ -202,7 +202,7 @@ class _MyLoginState extends State<LoginView>
                                   StaticRestaurantList.restaurants =
                                       await RestaurantViewModel()
                                           .getMatches(_currentUser);
-                                  Navigator.push(
+                                  Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => HomePageView()),

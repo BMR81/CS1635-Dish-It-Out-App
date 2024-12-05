@@ -7,10 +7,8 @@ class user_model {
   String? firstDish;
   String? secondDish;
   String? thirdDish;
-  List<String>? dietaryPreferences;
+  String? dietaryPreference;
   List? reviews;
-  List<int>? likedRestaurants;
-  List<int>? favoriteRestaurants;
 
   user_model(
       {this.id,
@@ -21,10 +19,8 @@ class user_model {
       this.firstDish,
       this.secondDish,
       this.thirdDish,
-      this.dietaryPreferences,
-      this.reviews,
-      this.likedRestaurants,
-      this.favoriteRestaurants});
+      this.dietaryPreference,
+      this.reviews});
 
   user_model.fromJson(Map<String, dynamic> json) {
     id = json['id'];
