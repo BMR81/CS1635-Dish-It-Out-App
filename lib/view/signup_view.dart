@@ -4,6 +4,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import '../model/user_model.dart';
 import '../view_model/user_view_model.dart';
 
 class SignupView extends StatefulWidget {
@@ -25,6 +26,9 @@ class _MySignupState extends State<SignupView> {
 
   var _isUniqueUsername = false;
   var _isUniqueEmail = false;
+
+  var _newUser = user_model();
+
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +74,7 @@ class _MySignupState extends State<SignupView> {
                               decoration:
                               _inputDecoration('Name', 'Enter your name'),
                               onChanged: (String enteredName){
-                                StaticUser.newUser?.name = enteredName;
+                                _newUser.name = enteredName;
                               },
                               validator: (enteredName) {
                                 return enteredName!.isEmpty
@@ -86,7 +90,7 @@ class _MySignupState extends State<SignupView> {
                               onChanged: (String enteredUsername) async {
                                 _isUniqueUsername = await _userViewModel.validateNewUsername(
                                     enteredUsername);
-                                StaticUser.newUser?.username = enteredUsername;
+                                _newUser.username = enteredUsername;
                               },
                               validator: (enteredUsername) {
                                 if (enteredUsername == null || enteredUsername.isEmpty) {
@@ -105,7 +109,7 @@ class _MySignupState extends State<SignupView> {
                               onChanged: (String enteredEmail) async {
                                 _isUniqueEmail = await _userViewModel.validateNewEmail(
                                     enteredEmail);
-                                StaticUser.newUser?.email = enteredEmail;
+                                _newUser.email = enteredEmail;
                               },
                               validator: (enteredEmail) {
                                 if (enteredEmail!.isEmpty) {
@@ -141,7 +145,7 @@ class _MySignupState extends State<SignupView> {
                                 ),
                               ),
                               onChanged: (String enteredPassword){
-                                StaticUser.newUser?.password = enteredPassword;
+                                _newUser.password = enteredPassword;
                               },
                               validator: (value) {
                                 return value!.isEmpty
@@ -202,6 +206,7 @@ class _MySignupState extends State<SignupView> {
                               ),
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
+                                  StaticUser.user = _newUser;
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
