@@ -15,6 +15,7 @@ class DetailsView extends StatefulWidget {
 }
 
 class _MyDetailsState extends State<DetailsView> {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -150,19 +151,54 @@ class _MyDetailsState extends State<DetailsView> {
               ),
             ),
             SizedBox(
-              height: 50,
+              height: 30,
             ),
-            Center(
-              child: Text(
-                "No reviews yet!",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    fontFamily: 'Quicksand',
-                    fontSize: 25,
-                    color: HexColor("B22222"),
-                    fontWeight: FontWeight.bold),
-              ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                    padding: EdgeInsets.only(left: 15),
+                  child: Text(
+                    "Reviews",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        fontFamily: 'Quicksand',
+                        fontSize: 25,
+                        color: HexColor("B22222"),
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+
+                Padding(
+                  padding: EdgeInsets.only(right: 15),
+                  child: InkWell(
+                    child: Text(
+                      '+ Add Review',
+                      style: TextStyle(
+                        fontFamily: 'Quicksand',
+                        fontSize: 16,
+                        color: HexColor("#FF6347"),
+                      ),
+                    ),
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('Review for ${widget.restaurant.name.toString()}'),
+                              content: Text('data'),
+                            );
+                          }
+                      );
+                    },
+                  ),
+                ),
+
+
+              ],
             ),
+
           ],
         ),
       ),

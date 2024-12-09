@@ -1,3 +1,5 @@
+import 'package:cs1635_dish_it_out_app/model/review_model.dart';
+
 class restaurant_model {
   int? id;
   String? name;
@@ -7,7 +9,7 @@ class restaurant_model {
   List<String>? preferences;
   double? rating;
   int? numReviews;
-  List? reviews;
+  List<review_model>? reviews;
   String? dish;
 
   restaurant_model(

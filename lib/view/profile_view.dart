@@ -59,10 +59,44 @@ class _MyProfileState extends State<ProfileView> {
                     ),
                   ),
                   onPressed: () {
-                    StaticVariables.likedRestaurants?.clear();
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginView()),
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text(
+                                'Are you sure?',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: HexColor("B22222"),
+                                ),
+                              ),
+                            content: Text(
+                                'Do you really want to log out of the app?',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            actions: [
+                              TextButton(
+                                  child: Text('No'),
+                                onPressed: (){
+                                    Navigator.of(context).pop(false);
+                                },
+                              ),
+                              TextButton(
+                                child: Text('Yes'),
+                                onPressed: (){
+                                  StaticVariables.likedRestaurants?.clear();
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => LoginView()),
+                                  );
+                                },
+                              ),
+                            ],
+                          );
+                        }
                     );
                   },
                   child: const Text(
