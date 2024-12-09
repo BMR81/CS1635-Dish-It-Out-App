@@ -1,4 +1,3 @@
-import 'package:cs1635_dish_it_out_app/view/leaderboard_view.dart';
 import 'package:cs1635_dish_it_out_app/view/profile_view.dart';
 import 'package:cs1635_dish_it_out_app/view/saved_view.dart';
 import 'package:flutter/material.dart';
@@ -18,10 +17,8 @@ class _MyHomePageState extends State<HomePageView> {
   var _currentIndex = 1;
 
   final viewList = [
-    //MenuView(),
-    LeaderboardView(),
-    HomeView(),
     SavedView(),
+    HomeView(),
     ProfileView(),
   ];
 
@@ -48,16 +45,12 @@ class _MyHomePageState extends State<HomePageView> {
               label: 'Menu',
             ),*/
             BottomNavigationBarItem(
-              icon: Icon(Icons.people),
-              label: 'Leaderboard',
+              icon: Icon(Icons.favorite_border),
+              label: 'Saved',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_border),
-              label: 'Saved',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
