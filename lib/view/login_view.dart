@@ -1,5 +1,4 @@
-import 'package:cs1635_dish_it_out_app/model/static_restaurant_list.dart';
-import 'package:cs1635_dish_it_out_app/model/static_user.dart';
+import 'package:cs1635_dish_it_out_app/model/static_variables.dart';
 import 'package:cs1635_dish_it_out_app/model/user_model.dart';
 import 'package:cs1635_dish_it_out_app/view/signup_view.dart';
 import 'package:cs1635_dish_it_out_app/view_model/restaurant_view_model.dart';
@@ -198,8 +197,8 @@ class _MyLoginState extends State<LoginView>
                                 if (_formKey.currentState!.validate()) {
                                   _currentUser =
                                       _userViewModel.getCurrentUser();
-                                  StaticUser.user = _currentUser;
-                                  StaticRestaurantList.restaurants =
+                                  StaticVariables.user = _currentUser;
+                                  StaticVariables.restaurants =
                                       await RestaurantViewModel()
                                           .getMatches(_currentUser);
                                   Navigator.pushReplacement(

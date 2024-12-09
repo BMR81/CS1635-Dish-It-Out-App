@@ -1,4 +1,4 @@
-import 'package:cs1635_dish_it_out_app/model/static_user.dart';
+import 'package:cs1635_dish_it_out_app/model/static_variables.dart';
 import 'package:cs1635_dish_it_out_app/view/preferences_view.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -206,7 +206,7 @@ class _MySignupState extends State<SignupView> {
                               ),
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
-                                  StaticUser.user = _newUser;
+                                  StaticVariables.user = _newUser;
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(

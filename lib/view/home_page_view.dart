@@ -1,13 +1,11 @@
 import 'package:cs1635_dish_it_out_app/view/leaderboard_view.dart';
 import 'package:cs1635_dish_it_out_app/view/profile_view.dart';
 import 'package:cs1635_dish_it_out_app/view/saved_view.dart';
-import 'package:cs1635_dish_it_out_app/view/widgets/restaurant_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import 'home_view.dart';
 
-//import 'menu_view.dart';
 
 class HomePageView extends StatefulWidget {
   const HomePageView({Key? key}) : super(key: key);

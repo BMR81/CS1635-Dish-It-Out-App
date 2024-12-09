@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import 'home_view.dart';
-//import 'menu_view.dart';
 
 class LeaderboardView extends StatefulWidget {
   const LeaderboardView({Key? key}) : super(key: key);

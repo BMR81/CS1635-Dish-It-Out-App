@@ -1,4 +1,4 @@
-import 'package:cs1635_dish_it_out_app/model/static_restaurant_list.dart';
+import 'package:cs1635_dish_it_out_app/model/static_variables.dart';
 import 'package:cs1635_dish_it_out_app/view/widgets/restaurant_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -13,7 +13,7 @@ class HomeView extends StatefulWidget {
 
 class _MyHomeState extends State<HomeView> {
   var _currentRestaurant = 0;
-  var _numRestaurants = StaticRestaurantList.restaurants!.length;
+  var _numRestaurants = StaticVariables.restaurants!.length;
   var _hasMore = true;
 
   // Track pressed state
@@ -64,7 +64,7 @@ class _MyHomeState extends State<HomeView> {
             Container(
               child: _hasMore && _numRestaurants > 0
                   ? RestaurantCardWidget(
-                restaurant: StaticRestaurantList.restaurants![0],
+                restaurant: StaticVariables.restaurants![0],
               )
                   : Padding(
                 padding: const EdgeInsets.symmetric(vertical: 100),
@@ -89,12 +89,12 @@ class _MyHomeState extends State<HomeView> {
                     setState(() => _isXPressed = false);
                     if (_currentRestaurant != _numRestaurants - 1) {
                       setState(() {
-                        StaticRestaurantList.restaurants?.removeAt(0);
+                        StaticVariables.restaurants?.removeAt(0);
                         _currentRestaurant++;
                       });
                     } else {
                       setState(() {
-                        StaticRestaurantList.restaurants?.removeAt(0);
+                        StaticVariables.restaurants?.removeAt(0);
                         _hasMore = false;
                       });
                     }
@@ -122,16 +122,16 @@ class _MyHomeState extends State<HomeView> {
                     setState(() => _isCheckPressed = false);
                     if (_currentRestaurant != _numRestaurants - 1) {
                       setState(() {
-                        StaticRestaurantList.likedRestaurants
-                            ?.add(StaticRestaurantList.restaurants![0]);
-                        StaticRestaurantList.restaurants?.removeAt(0);
+                        StaticVariables.likedRestaurants
+                            ?.add(StaticVariables.restaurants![0]);
+                        StaticVariables.restaurants?.removeAt(0);
                         _currentRestaurant++;
                       });
                     } else {
                       setState(() {
-                        StaticRestaurantList.likedRestaurants
-                            ?.add(StaticRestaurantList.restaurants![0]);
-                        StaticRestaurantList.restaurants?.removeAt(0);
+                        StaticVariables.likedRestaurants
+                            ?.add(StaticVariables.restaurants![0]);
+                        StaticVariables.restaurants?.removeAt(0);
                         _hasMore = false;
                       });
                     }

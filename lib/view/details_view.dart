@@ -44,26 +44,16 @@ class _MyDetailsState extends State<DetailsView> {
                     image: AssetImage(widget.restaurant.image.toString())),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 10),
-                  child: Text(
-                    widget.restaurant.name.toString(),
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        fontFamily: 'Quicksand',
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                IconButton(
-                  icon: Icon(Icons.favorite_border),
-                  iconSize: 40,
-                  onPressed: () {},
-                ),
-              ],
+            Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Text(
+                widget.restaurant.name.toString(),
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    fontFamily: 'Quicksand',
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
             Row(
               children: [

@@ -1,6 +1,8 @@
 import 'package:cs1635_dish_it_out_app/model/restaurant_model.dart';
+import 'package:cs1635_dish_it_out_app/model/user_model.dart';
 
-class StaticRestaurantList {
+class StaticVariables {
+  static user_model? user;
   static List<restaurant_model>? restaurants;
   static List<restaurant_model>? likedRestaurants = <restaurant_model>[];
 }

@@ -1,7 +1,9 @@
 import 'package:cs1635_dish_it_out_app/model/restaurant_model.dart';
 import 'package:flutter/material.dart';
 
+import '../../model/static_variables.dart';
 import '../details_view.dart';
+import '../saved_view.dart';
 
 class SavedRestaurantWidget extends StatefulWidget {
   final restaurant_model restaurant;
@@ -35,44 +37,67 @@ class _MySavedRestaurantState extends State<SavedRestaurantWidget> {
                     fit: BoxFit.fill,
                     widget.restaurant.image.toString()),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        widget.restaurant.name.toString(),
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  Row(
+              Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(width: 185),
-                      IconButton(
-                        padding: EdgeInsets.symmetric(horizontal: 5),
-                        icon: Icon(Icons.info_outline),
-                        iconSize: 40,
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => DetailsView(
-                                        restaurant: widget.restaurant,
-                                      )));
-                        },
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 10),
+                            child: Align(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                widget.restaurant.name.toString(),
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+
+                          IconButton(
+                            padding: EdgeInsets.symmetric(horizontal: 0),
+                            icon: Icon(Icons.close),
+                            iconSize: 30,
+                            onPressed: () {
+                              setState(() {
+                                StaticVariables.likedRestaurants?.remove(widget.restaurant);
+
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => SavedView()),
+                                );
+
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: IconButton(
+                          padding: EdgeInsets.symmetric(horizontal: 5),
+                          icon: Icon(Icons.info_outline),
+                          iconSize: 35,
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DetailsView(
+                                      restaurant: widget.restaurant,
+                                    )));
+                          },
+                        ),
                       ),
                     ],
-                  )
-                ],
+                  ),
               ),
+
             ],
           ),
         ),

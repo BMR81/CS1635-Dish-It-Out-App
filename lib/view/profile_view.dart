@@ -2,8 +2,7 @@ import 'package:cs1635_dish_it_out_app/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import '../model/static_restaurant_list.dart';
-import '../model/static_user.dart';
+import '../model/static_variables.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({Key? key}) : super(key: key);
@@ -15,9 +14,9 @@ class ProfileView extends StatefulWidget {
 class _MyProfileState extends State<ProfileView> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  String firstDish = StaticUser.user!.firstDish.toString();
-  String secondDish = StaticUser.user!.secondDish.toString();
-  String thirdDish = StaticUser.user!.thirdDish.toString();
+  String firstDish = StaticVariables.user!.firstDish.toString();
+  String secondDish = StaticVariables.user!.secondDish.toString();
+  String thirdDish = StaticVariables.user!.thirdDish.toString();
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +59,7 @@ class _MyProfileState extends State<ProfileView> {
                     ),
                   ),
                   onPressed: () {
-                    StaticRestaurantList.likedRestaurants?.clear();
+                    StaticVariables.likedRestaurants?.clear();
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => LoginView()),
@@ -115,7 +114,7 @@ class _MyProfileState extends State<ProfileView> {
                   ),
                 ),
                 Text(
-                  StaticUser.user!.name.toString(),
+                  StaticVariables.user!.name.toString(),
                   style: TextStyle(
                     fontFamily: 'Quicksand',
                     fontSize: 40,

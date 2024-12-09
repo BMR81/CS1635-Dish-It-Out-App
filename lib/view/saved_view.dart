@@ -2,7 +2,7 @@ import 'package:cs1635_dish_it_out_app/view/widgets/saved_restaurant_widget.dart
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import '../model/static_restaurant_list.dart';
+import '../model/static_variables.dart';
 
 class SavedView extends StatefulWidget {
   const SavedView({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class SavedView extends StatefulWidget {
 
 class _MySavedState extends State<SavedView> {
 
-  var _numLikedRestaurants = StaticRestaurantList.likedRestaurants!.length;
+  var _numLikedRestaurants = StaticVariables.likedRestaurants!.length;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _MySavedState extends State<SavedView> {
                     itemBuilder: (context, index) {
                       return SavedRestaurantWidget(
                           restaurant:
-                              StaticRestaurantList.likedRestaurants![index]);
+                              StaticVariables.likedRestaurants![index]);
                     })
                 : Padding(
                       padding: EdgeInsets.symmetric(vertical: 40),

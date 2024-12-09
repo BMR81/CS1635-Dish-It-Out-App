@@ -1,12 +1,9 @@
-import 'package:cs1635_dish_it_out_app/model/static_user.dart';
+import 'package:cs1635_dish_it_out_app/model/static_variables.dart';
 import 'package:cs1635_dish_it_out_app/view/home_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import '../model/static_restaurant_list.dart';
-import '../model/user_model.dart';
 import '../view_model/restaurant_view_model.dart';
-import '../view_model/user_view_model.dart';
 
 class PreferencesView extends StatefulWidget {
   const PreferencesView({Key? key}) : super(key: key);
@@ -31,9 +28,8 @@ class _MyPreferencesState extends State<PreferencesView> {
   List<String> favoriteDishes = <String>[];
   String preference = "";
 
-  var _newUser = StaticUser.user;
+  var _newUser = StaticVariables.user;
 
-  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -402,9 +398,9 @@ class _MyPreferencesState extends State<PreferencesView> {
                           _newUser?.secondDish = favoriteDishes.elementAt(1);
                           _newUser?.thirdDish = favoriteDishes.elementAt(2);
 
-                          StaticUser.user = _newUser;
+                          StaticVariables.user = _newUser;
 
-                          StaticRestaurantList.restaurants =
+                          StaticVariables.restaurants =
                               await RestaurantViewModel().getMatches(_newUser!);
                           Navigator.pushReplacement(
                             context,
