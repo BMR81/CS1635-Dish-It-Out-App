@@ -28,7 +28,7 @@ class _MyHomeState extends State<HomeView> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
+/*            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
@@ -59,7 +59,7 @@ class _MyHomeState extends State<HomeView> {
                   onPressed: () {},
                 ),
               ],
-            ),
+            ),*/
             const SizedBox(height: 50),
             Container(
               child: _hasMore && _numRestaurants > 0

@@ -53,7 +53,7 @@ class _MyPreferencesState extends State<PreferencesView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 80),
+                    const SizedBox(height: 100),
                     Text(
                       'Set Preferences',
                       style: TextStyle(
@@ -88,7 +88,7 @@ class _MyPreferencesState extends State<PreferencesView> {
                               if (_veganColor == Colors.white &&
                                   preference == "") {
                                 setState(() {
-                                  _veganColor = Colors.grey;
+                                  _veganColor = HexColor("B22222");
                                   preference = "vegan";
                                 });
                               } else if (preference == "vegan") {
@@ -101,14 +101,30 @@ class _MyPreferencesState extends State<PreferencesView> {
                             child: Container(
                               decoration: BoxDecoration(
                                 color: _veganColor,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(color: HexColor("#B22222")),
+                                boxShadow: [
+                                  if (_veganColor == HexColor("B22222"))
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.25),
+                                      offset: Offset(0, 4),
+                                      blurRadius: 10,
+                                    ),
+                                ],
                               ),
+
                               child: Center(
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 5),
-                                  child: Text("Vegan"),
+                                  child: Text(
+                                    "Vegan",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: _veganColor == HexColor("B22222") ? Colors.white : Colors.black,
+                                      //fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
@@ -121,7 +137,7 @@ class _MyPreferencesState extends State<PreferencesView> {
                                 if (_vegetarianColor == Colors.white &&
                                     preference == "") {
                                   setState(() {
-                                    _vegetarianColor = Colors.grey;
+                                    _vegetarianColor = HexColor("B22222");
                                     preference = "vegetarian";
                                   });
                                 } else if (preference == "vegetarian") {
@@ -134,14 +150,28 @@ class _MyPreferencesState extends State<PreferencesView> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: _vegetarianColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                  border: Border.all(color: Colors.black),
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(color: HexColor("#B22222")),
+                                  boxShadow: [
+                                    if (_vegetarianColor == HexColor("B22222"))
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.25),
+                                        offset: Offset(0, 4),
+                                        blurRadius: 10,
+                                      ),
+                                  ],
                                 ),
                                 child: Center(
                                   child: Padding(
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 10, vertical: 5),
-                                    child: Text("Vegetarian"),
+                                    child: Text(
+                                      "Vegetarian",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: _vegetarianColor == HexColor("B22222") ? Colors.white : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -152,7 +182,7 @@ class _MyPreferencesState extends State<PreferencesView> {
                               if (_ketoColor == Colors.white &&
                                   preference == "") {
                                 setState(() {
-                                  _ketoColor = Colors.grey;
+                                  _ketoColor = HexColor("#B22222");
                                   preference = "keto";
                                 });
                               } else if (preference == "keto") {
@@ -165,14 +195,29 @@ class _MyPreferencesState extends State<PreferencesView> {
                             child: Container(
                               decoration: BoxDecoration(
                                 color: _ketoColor,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(color: HexColor("#B22222")),
+                                boxShadow: [
+                                  if (_ketoColor == HexColor("B22222"))
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.25),
+                                      offset: Offset(0, 4),
+                                      blurRadius: 10,
+                                    ),
+                                ],
+
                               ),
                               child: Center(
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 5),
-                                  child: Text("Keto"),
+                                  child: Text(
+                                      "Keto",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: _ketoColor == HexColor("B22222") ? Colors.white : Colors.black,
+                                  ),
+                                  ),
                                 ),
                               ),
                             ),
@@ -207,7 +252,7 @@ class _MyPreferencesState extends State<PreferencesView> {
                               if (_pizzaColor == Colors.white &&
                                   favoriteDishes.length <= 2) {
                                 setState(() {
-                                  _pizzaColor = Colors.grey;
+                                  _pizzaColor = HexColor("B22222");
                                   favoriteDishes.add("pizza");
                                 });
                               } else {
@@ -220,14 +265,28 @@ class _MyPreferencesState extends State<PreferencesView> {
                             child: Container(
                               decoration: BoxDecoration(
                                 color: _pizzaColor,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(color: HexColor("#B22222")),
+                                boxShadow: [
+                                  if (_pizzaColor == HexColor("B22222"))
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.25),
+                                      offset: Offset(0, 4),
+                                      blurRadius: 10,
+                                    ),
+                                ],
                               ),
                               child: Center(
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 5),
-                                  child: Text("Pizza"),
+                                  child: Text(
+                                      "Pizza",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: _pizzaColor == HexColor("B22222") ? Colors.white : Colors.black,
+                                      ),
+                                  ),
                                 ),
                               ),
                             ),
@@ -240,7 +299,7 @@ class _MyPreferencesState extends State<PreferencesView> {
                                 if (_burgersColor == Colors.white &&
                                     favoriteDishes.length <= 2) {
                                   setState(() {
-                                    _burgersColor = Colors.grey;
+                                    _burgersColor = HexColor("B22222");
                                     favoriteDishes.add("burger");
                                   });
                                 } else {
@@ -253,14 +312,27 @@ class _MyPreferencesState extends State<PreferencesView> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: _burgersColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                  border: Border.all(color: Colors.black),
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(color: HexColor("#B22222")),
+                                  boxShadow: [
+                                    if (_burgersColor == HexColor("B22222"))
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.25),
+                                        offset: Offset(0, 4),
+                                        blurRadius: 10,
+                                      ),
+                                  ],
                                 ),
                                 child: Center(
                                   child: Padding(
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 10, vertical: 5),
-                                    child: Text("Burgers"),
+                                    child: Text(
+                                        "Burgers",
+                                        style: TextStyle(
+                                        fontSize: 16,
+                                        color: _burgersColor == HexColor("B22222") ? Colors.white : Colors.black),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -271,7 +343,7 @@ class _MyPreferencesState extends State<PreferencesView> {
                               if (_tacosColor == Colors.white &&
                                   favoriteDishes.length <= 2) {
                                 setState(() {
-                                  _tacosColor = Colors.grey;
+                                  _tacosColor = HexColor("B22222");
                                   favoriteDishes.add("tacos");
                                 });
                               } else {
@@ -284,14 +356,28 @@ class _MyPreferencesState extends State<PreferencesView> {
                             child: Container(
                               decoration: BoxDecoration(
                                 color: _tacosColor,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(color: HexColor("#B22222")),
+                                boxShadow: [
+                                  if (_tacosColor == HexColor("B22222"))
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.25),
+                                      offset: Offset(0, 4),
+                                      blurRadius: 10,
+                                    ),
+                                ],
                               ),
                               child: Center(
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 5),
-                                  child: Text("Tacos"),
+                                  child: Text(
+                                    "Tacos",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: _tacosColor == HexColor("B22222") ? Colors.white : Colors.black,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
@@ -304,7 +390,7 @@ class _MyPreferencesState extends State<PreferencesView> {
                                 if (_wingsColor == Colors.white &&
                                     favoriteDishes.length <= 2) {
                                   setState(() {
-                                    _wingsColor = Colors.grey;
+                                    _wingsColor = HexColor("b22222");
                                     favoriteDishes.add("wings");
                                   });
                                 } else {
@@ -317,14 +403,27 @@ class _MyPreferencesState extends State<PreferencesView> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: _wingsColor,
-                                  borderRadius: BorderRadius.circular(15),
-                                  border: Border.all(color: Colors.black),
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(color: HexColor("#B22222")),
+                                  boxShadow: [
+                                    if (_wingsColor == HexColor("B22222"))
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.25),
+                                        offset: Offset(0, 4),
+                                        blurRadius: 10,
+                                      ),
+                                  ],
                                 ),
                                 child: Center(
                                   child: Padding(
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 10, vertical: 5),
-                                    child: Text("Wings"),
+                                    child: Text("Wings",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: _wingsColor == HexColor("B22222") ? Colors.white : Colors.black,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -344,12 +443,13 @@ class _MyPreferencesState extends State<PreferencesView> {
                             if (_saladColor == Colors.white &&
                                 favoriteDishes.length <= 2) {
                               setState(() {
-                                _saladColor = Colors.grey;
+                                _saladColor = HexColor("b22222");
                                 favoriteDishes.add("salad");
                               });
                             } else {
                               setState(() {
                                 _saladColor = Colors.white;
+                                favoriteDishes.remove("salad");
                                 favoriteDishes.remove("salad");
                               });
                             }
@@ -358,14 +458,27 @@ class _MyPreferencesState extends State<PreferencesView> {
                             width: 60,
                             decoration: BoxDecoration(
                               color: _saladColor,
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(color: HexColor("#B22222")),
+                              boxShadow: [
+                                if (_saladColor == HexColor("B22222"))
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.25),
+                                    offset: Offset(0, 4),
+                                    blurRadius: 10,
+                                  ),
+                              ],
                             ),
                             child: Center(
                               child: Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 5),
-                                child: Text("Salad"),
+                                child: Text("Salad",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: _saladColor == HexColor("B22222") ? Colors.white : Colors.black,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
@@ -418,6 +531,7 @@ class _MyPreferencesState extends State<PreferencesView> {
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
