@@ -45,18 +45,31 @@ class _MySavedState extends State<SavedView> {
                           restaurant:
                               StaticVariables.likedRestaurants![index]);
                     })
-                : Padding(
-                      padding: EdgeInsets.symmetric(vertical: 40),
-                      child: Text(
-                        'Nothing here yet. Swipe to save your likes!',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontFamily: 'Quicksand',
-                            fontSize: 30,
-                            color: HexColor("B22222"),
-                            fontWeight: FontWeight.bold),
-                      ),
+                : Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset(
+                  'assets/images/empty.png',
+                  height: 400,
+                  width: 400,
+                  fit: BoxFit.cover,
+                ),
+                Padding(
+                  padding:
+                  EdgeInsets.symmetric(horizontal: 35),
+                  child: Text(
+                    'Hungry for something new? \n  Swipe to fill your plate!',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'Quicksand',
+                      fontSize: 22,
+                      color: HexColor("B22222"),
+                      fontWeight: FontWeight.bold,
                     ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
