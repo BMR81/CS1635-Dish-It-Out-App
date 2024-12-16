@@ -29,7 +29,6 @@ class _MySignupState extends State<SignupView> {
 
   var _newUser = user_model();
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -72,8 +71,8 @@ class _MySignupState extends State<SignupView> {
                             TextFormField(
                               keyboardType: TextInputType.text,
                               decoration:
-                              _inputDecoration('Name', 'Enter your name'),
-                              onChanged: (String enteredName){
+                                  _inputDecoration('Name', 'Enter your name'),
+                              onChanged: (String enteredName) {
                                 _newUser.name = enteredName;
                               },
                               validator: (enteredName) {
@@ -88,12 +87,13 @@ class _MySignupState extends State<SignupView> {
                               decoration: _inputDecoration(
                                   'Username', 'Enter your username'),
                               onChanged: (String enteredUsername) async {
-                                _isUniqueUsername = await _userViewModel.validateNewUsername(
-                                    enteredUsername);
+                                _isUniqueUsername = await _userViewModel
+                                    .validateNewUsername(enteredUsername);
                                 _newUser.username = enteredUsername;
                               },
                               validator: (enteredUsername) {
-                                if (enteredUsername == null || enteredUsername.isEmpty) {
+                                if (enteredUsername == null ||
+                                    enteredUsername.isEmpty) {
                                   return 'Please enter username';
                                 } else if (!_isUniqueUsername) {
                                   return 'Username already in use';
@@ -105,16 +105,17 @@ class _MySignupState extends State<SignupView> {
                             TextFormField(
                               keyboardType: TextInputType.emailAddress,
                               decoration:
-                              _inputDecoration('Email', 'Enter your email'),
+                                  _inputDecoration('Email', 'Enter your email'),
                               onChanged: (String enteredEmail) async {
-                                _isUniqueEmail = await _userViewModel.validateNewEmail(
-                                    enteredEmail);
+                                _isUniqueEmail = await _userViewModel
+                                    .validateNewEmail(enteredEmail);
                                 _newUser.email = enteredEmail;
                               },
                               validator: (enteredEmail) {
                                 if (enteredEmail!.isEmpty) {
                                   return 'Please enter your email';
-                                } else if (!EmailValidator.validate(enteredEmail)) {
+                                } else if (!EmailValidator.validate(
+                                    enteredEmail)) {
                                   return 'Please enter a valid email';
                                 } else if (!_isUniqueEmail) {
                                   return 'Email already in use';
@@ -139,12 +140,12 @@ class _MySignupState extends State<SignupView> {
                                   onPressed: () {
                                     setState(() {
                                       _passwordIsObscured =
-                                      !_passwordIsObscured;
+                                          !_passwordIsObscured;
                                     });
                                   },
                                 ),
                               ),
-                              onChanged: (String enteredPassword){
+                              onChanged: (String enteredPassword) {
                                 _newUser.password = enteredPassword;
                               },
                               validator: (value) {
@@ -169,7 +170,7 @@ class _MySignupState extends State<SignupView> {
                                   onPressed: () {
                                     setState(() {
                                       _confirmPasswordIsObscured =
-                                      !_confirmPasswordIsObscured;
+                                          !_confirmPasswordIsObscured;
                                     });
                                   },
                                 ),
@@ -192,8 +193,8 @@ class _MySignupState extends State<SignupView> {
                                 elevation: 5,
                               ).copyWith(
                                 backgroundColor:
-                                WidgetStateProperty.resolveWith<Color>(
-                                      (Set<WidgetState> states) {
+                                    WidgetStateProperty.resolveWith<Color>(
+                                  (Set<WidgetState> states) {
                                     if (states.contains(WidgetState.pressed)) {
                                       return HexColor("FF6347");
                                     }
@@ -207,10 +208,11 @@ class _MySignupState extends State<SignupView> {
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
                                   StaticVariables.user = _newUser;
-                                  Navigator.pushReplacement(
+                                  Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => PreferencesView()),
+                                        builder: (context) =>
+                                            PreferencesView()),
                                   );
                                 }
                               },
@@ -234,8 +236,8 @@ class _MySignupState extends State<SignupView> {
                         Text(
                           'Already a user? ',
                           style: TextStyle(
-                              color: HexColor("#B22222"),
-                              fontSize: 16,
+                            color: HexColor("#B22222"),
+                            fontSize: 16,
                           ),
                         ),
                         InkWell(
@@ -277,8 +279,7 @@ class _MySignupState extends State<SignupView> {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
-        borderSide:
-        const BorderSide(color: Colors.grey, width: 2.0),
+        borderSide: const BorderSide(color: Colors.grey, width: 2.0),
       ),
       fillColor: Colors.white,
       filled: true,

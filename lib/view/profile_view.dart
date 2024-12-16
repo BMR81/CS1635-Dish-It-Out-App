@@ -1,4 +1,5 @@
 import 'package:cs1635_dish_it_out_app/view/login_view.dart';
+import 'package:cs1635_dish_it_out_app/view/preferences_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -37,9 +38,44 @@ class _MyProfileState extends State<ProfileView> {
                   ),
                 ),
               ),
-              Spacer(),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 20),
+                padding: EdgeInsets.symmetric(vertical: 30),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: HexColor("#B22222"),
+                    foregroundColor: Colors.white, // Text color
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    elevation: 5, // Elevation for shadow effect
+                  ).copyWith(
+                    backgroundColor: WidgetStateProperty.resolveWith<Color>(
+                      (Set<WidgetState> states) {
+                        if (states.contains(WidgetState.pressed)) {
+                          return HexColor("#FF6347");
+                        }
+                        return HexColor("#B22222");
+                      },
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PreferencesView()),
+                    );
+                  },
+                  child: const Text(
+                    'Update Favorite Dishes',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 2),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: HexColor("#B22222"),
@@ -64,40 +100,40 @@ class _MyProfileState extends State<ProfileView> {
                         builder: (BuildContext context) {
                           return AlertDialog(
                             title: Text(
-                                'Are you sure?',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: HexColor("B22222"),
-                                ),
+                              'Are you sure?',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: HexColor("B22222"),
                               ),
+                            ),
                             content: Text(
-                                'Do you really want to log out of the app?',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                ),
+                              'Do you really want to log out of the app?',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.black,
                               ),
+                            ),
                             actions: [
                               TextButton(
-                                  child: Text('No'),
-                                onPressed: (){
-                                    Navigator.of(context).pop(false);
+                                child: Text('No'),
+                                onPressed: () {
+                                  Navigator.of(context).pop(false);
                                 },
                               ),
                               TextButton(
                                 child: Text('Yes'),
-                                onPressed: (){
+                                onPressed: () {
                                   StaticVariables.likedRestaurants?.clear();
                                   Navigator.pushReplacement(
                                     context,
-                                    MaterialPageRoute(builder: (context) => LoginView()),
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginView()),
                                   );
                                 },
                               ),
                             ],
                           );
-                        }
-                    );
+                        });
                   },
                   child: const Text(
                     'Log Out',

@@ -13,7 +13,6 @@ class PreferencesView extends StatefulWidget {
 }
 
 class _MyPreferencesState extends State<PreferencesView> {
-
   Color _veganColor = Colors.white;
   Color _vegetarianColor = Colors.white;
   Color _ketoColor = Colors.white;
@@ -30,7 +29,6 @@ class _MyPreferencesState extends State<PreferencesView> {
 
   var _newUser = StaticVariables.user;
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,6 +42,19 @@ class _MyPreferencesState extends State<PreferencesView> {
               child: Image.asset(
                 'assets/images/signup_background.png',
                 fit: BoxFit.cover,
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: IconButton(
+                icon: Icon(Icons.arrow_back),
+                iconSize: 50,
+                padding: EdgeInsets.only(top: 60),
+                color: Colors.white,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
             ),
             // Sign up content
@@ -112,7 +123,6 @@ class _MyPreferencesState extends State<PreferencesView> {
                                     ),
                                 ],
                               ),
-
                               child: Center(
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
@@ -121,7 +131,9 @@ class _MyPreferencesState extends State<PreferencesView> {
                                     "Vegan",
                                     style: TextStyle(
                                       fontSize: 16,
-                                      color: _veganColor == HexColor("B22222") ? Colors.white : Colors.black,
+                                      color: _veganColor == HexColor("B22222")
+                                          ? Colors.white
+                                          : Colors.black,
                                       //fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -151,7 +163,8 @@ class _MyPreferencesState extends State<PreferencesView> {
                                 decoration: BoxDecoration(
                                   color: _vegetarianColor,
                                   borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(color: HexColor("#B22222")),
+                                  border:
+                                      Border.all(color: HexColor("#B22222")),
                                   boxShadow: [
                                     if (_vegetarianColor == HexColor("B22222"))
                                       BoxShadow(
@@ -169,7 +182,10 @@ class _MyPreferencesState extends State<PreferencesView> {
                                       "Vegetarian",
                                       style: TextStyle(
                                         fontSize: 16,
-                                        color: _vegetarianColor == HexColor("B22222") ? Colors.white : Colors.black,
+                                        color: _vegetarianColor ==
+                                                HexColor("B22222")
+                                            ? Colors.white
+                                            : Colors.black,
                                       ),
                                     ),
                                   ),
@@ -205,18 +221,19 @@ class _MyPreferencesState extends State<PreferencesView> {
                                       blurRadius: 10,
                                     ),
                                 ],
-
                               ),
                               child: Center(
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 5),
                                   child: Text(
-                                      "Keto",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: _ketoColor == HexColor("B22222") ? Colors.white : Colors.black,
-                                  ),
+                                    "Keto",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: _ketoColor == HexColor("B22222")
+                                          ? Colors.white
+                                          : Colors.black,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -281,11 +298,13 @@ class _MyPreferencesState extends State<PreferencesView> {
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 5),
                                   child: Text(
-                                      "Pizza",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: _pizzaColor == HexColor("B22222") ? Colors.white : Colors.black,
-                                      ),
+                                    "Pizza",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: _pizzaColor == HexColor("B22222")
+                                          ? Colors.white
+                                          : Colors.black,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -313,7 +332,8 @@ class _MyPreferencesState extends State<PreferencesView> {
                                 decoration: BoxDecoration(
                                   color: _burgersColor,
                                   borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(color: HexColor("#B22222")),
+                                  border:
+                                      Border.all(color: HexColor("#B22222")),
                                   boxShadow: [
                                     if (_burgersColor == HexColor("B22222"))
                                       BoxShadow(
@@ -328,10 +348,13 @@ class _MyPreferencesState extends State<PreferencesView> {
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 10, vertical: 5),
                                     child: Text(
-                                        "Burgers",
-                                        style: TextStyle(
-                                        fontSize: 16,
-                                        color: _burgersColor == HexColor("B22222") ? Colors.white : Colors.black),
+                                      "Burgers",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: _burgersColor ==
+                                                  HexColor("B22222")
+                                              ? Colors.white
+                                              : Colors.black),
                                     ),
                                   ),
                                 ),
@@ -375,7 +398,9 @@ class _MyPreferencesState extends State<PreferencesView> {
                                     "Tacos",
                                     style: TextStyle(
                                       fontSize: 16,
-                                      color: _tacosColor == HexColor("B22222") ? Colors.white : Colors.black,
+                                      color: _tacosColor == HexColor("B22222")
+                                          ? Colors.white
+                                          : Colors.black,
                                     ),
                                   ),
                                 ),
@@ -404,7 +429,8 @@ class _MyPreferencesState extends State<PreferencesView> {
                                 decoration: BoxDecoration(
                                   color: _wingsColor,
                                   borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(color: HexColor("#B22222")),
+                                  border:
+                                      Border.all(color: HexColor("#B22222")),
                                   boxShadow: [
                                     if (_wingsColor == HexColor("B22222"))
                                       BoxShadow(
@@ -418,10 +444,13 @@ class _MyPreferencesState extends State<PreferencesView> {
                                   child: Padding(
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 10, vertical: 5),
-                                    child: Text("Wings",
+                                    child: Text(
+                                      "Wings",
                                       style: TextStyle(
                                         fontSize: 16,
-                                        color: _wingsColor == HexColor("B22222") ? Colors.white : Colors.black,
+                                        color: _wingsColor == HexColor("B22222")
+                                            ? Colors.white
+                                            : Colors.black,
                                       ),
                                     ),
                                   ),
@@ -473,10 +502,13 @@ class _MyPreferencesState extends State<PreferencesView> {
                               child: Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 5),
-                                child: Text("Salad",
+                                child: Text(
+                                  "Salad",
                                   style: TextStyle(
                                     fontSize: 14,
-                                    color: _saladColor == HexColor("B22222") ? Colors.white : Colors.black,
+                                    color: _saladColor == HexColor("B22222")
+                                        ? Colors.white
+                                        : Colors.black,
                                   ),
                                 ),
                               ),
@@ -520,7 +552,7 @@ class _MyPreferencesState extends State<PreferencesView> {
                             MaterialPageRoute(
                                 builder: (context) => HomePageView()),
                           );
-                        }else{
+                        } else {
                           setState(() {
                             _warningMessageColor = HexColor("#B22222");
                           });

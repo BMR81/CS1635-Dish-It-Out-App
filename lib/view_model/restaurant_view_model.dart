@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cs1635_dish_it_out_app/model/static_variables.dart';
 import 'package:cs1635_dish_it_out_app/model/user_model.dart';
 import 'package:flutter/services.dart';
 
@@ -25,6 +26,11 @@ class RestaurantViewModel {
           restaurant.dish.toString() == currUser.secondDish.toString() ||
           restaurant.dish.toString() == currUser.thirdDish.toString()) {
         matchedRestaurants.add(restaurant);
+      }
+      for (var likedRestaurant in StaticVariables.likedRestaurants!) {
+        if (restaurant.name.toString() == likedRestaurant.name.toString()) {
+          matchedRestaurants.remove(restaurant);
+        }
       }
     }
     return matchedRestaurants;
