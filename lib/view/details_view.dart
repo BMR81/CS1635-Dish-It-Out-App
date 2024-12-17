@@ -495,7 +495,7 @@ class _MyDetailsState extends State<DetailsView> {
                       Row(
                         children: [
                           Text(
-                            'User789 tried: ',
+                            'chill_guy tried: ',
                             style: TextStyle(
                               fontFamily: 'Quicksand',
                               fontSize: 16,
@@ -628,7 +628,7 @@ class _MyDetailsState extends State<DetailsView> {
                       Row(
                         children: [
                           Text(
-                            'User456 tried: ',
+                            'chill_individual tried: ',
                             style: TextStyle(
                               fontFamily: 'Quicksand',
                               fontSize: 16,
@@ -705,7 +705,7 @@ class _MyDetailsState extends State<DetailsView> {
                                     ),
                                   ),
                                   Text(
-                                    '\"Honestly, very average ${widget.restaurant.dish.toString()}. Nothing special.\"',
+                                    '\"Honestly, very mid ${widget.restaurant.dish.toString()}. Nothing special.\"',
                                     softWrap: true,
                                     style: TextStyle(
                                       fontFamily: 'Quicksand',
@@ -737,7 +737,7 @@ class _MyDetailsState extends State<DetailsView> {
                       Row(
                         children: [
                           Text(
-                            'User123 tried: ',
+                            'chill_girl tried: ',
                             style: TextStyle(
                               fontFamily: 'Quicksand',
                               fontSize: 16,
@@ -790,7 +790,7 @@ class _MyDetailsState extends State<DetailsView> {
                                     ),
                                   ),
                                   Text(
-                                    '\"I really did not like the ${widget.restaurant.dish.toString()}.\"',
+                                    '\"I really did not like the ${widget.restaurant.dish.toString()}...\"',
                                     softWrap: true,
                                     style: TextStyle(
                                       fontFamily: 'Quicksand',
