@@ -175,8 +175,7 @@ class _MyLoginState extends State<LoginView>
                             // Login button
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    HexColor("#B22222"),
+                                backgroundColor: HexColor("#B22222"),
                                 foregroundColor: Colors.white, // Text color
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),

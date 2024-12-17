@@ -5,7 +5,6 @@ import 'package:hexcolor/hexcolor.dart';
 
 import 'home_view.dart';
 
-
 class HomePageView extends StatefulWidget {
   const HomePageView({Key? key}) : super(key: key);
 

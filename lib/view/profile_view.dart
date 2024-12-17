@@ -1,5 +1,6 @@
 import 'package:cs1635_dish_it_out_app/view/login_view.dart';
 import 'package:cs1635_dish_it_out_app/view/preferences_view.dart';
+import 'package:cs1635_dish_it_out_app/view/widgets/review_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -124,6 +125,7 @@ class _MyProfileState extends State<ProfileView> {
                                 child: Text('Yes'),
                                 onPressed: () {
                                   StaticVariables.likedRestaurants?.clear();
+                                  StaticVariables.reviews?.clear();
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
@@ -174,76 +176,99 @@ class _MyProfileState extends State<ProfileView> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CircleAvatar(
-                  radius: 80,
-                  backgroundColor: HexColor("B22222"),
-                  child: CircleAvatar(
-                    radius: 75,
-                    backgroundImage:
-                        AssetImage('assets/images/profilePhoto.png'),
-                  ),
-                ),
-                Text(
-                  StaticVariables.user!.name.toString(),
-                  style: TextStyle(
-                    fontFamily: 'Quicksand',
-                    fontSize: 40,
-                    color: HexColor("B22222"),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 30),
-                Divider(color: Colors.white),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      "Top Dishes",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontFamily: 'Quicksand',
-                        fontSize: 25,
-                        color: HexColor("B22222"),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _buildDishColumn(firstDish),
-                    _buildDishColumn(secondDish),
-                    _buildDishColumn(thirdDish),
-                  ],
-                ),
-                Divider(color: Colors.white),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      "Review Log",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontFamily: 'Quicksand',
-                        fontSize: 25,
-                        color: HexColor("B22222"),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    "Savor the memories. Start reviewing!",
-                    style: TextStyle(
-                      fontFamily: 'Quicksand',
-                      fontSize: 18,
-                      color: HexColor("B22222"),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 170),
+                        CircleAvatar(
+                          radius: 80,
+                          backgroundColor: HexColor("B22222"),
+                          child: CircleAvatar(
+                            radius: 75,
+                            backgroundImage:
+                                AssetImage('assets/images/profilePhoto.png'),
+                          ),
+                        ),
+                        Text(
+                          StaticVariables.user!.name.toString(),
+                          style: TextStyle(
+                            fontFamily: 'Quicksand',
+                            fontSize: 40,
+                            color: HexColor("B22222"),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Divider(color: Colors.white),
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Text(
+                              "Top Dishes",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontFamily: 'Quicksand',
+                                fontSize: 25,
+                                color: HexColor("B22222"),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            _buildDishColumn(firstDish),
+                            _buildDishColumn(secondDish),
+                            _buildDishColumn(thirdDish),
+                          ],
+                        ),
+                        Divider(color: Colors.white),
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Text(
+                              "Review Log",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontFamily: 'Quicksand',
+                                fontSize: 25,
+                                color: HexColor("B22222"),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Container(
+                              child: StaticVariables.reviews!.length > 0
+                                  ? ListView.builder(
+                                      itemCount:
+                                          StaticVariables.reviews!.length,
+                                      itemBuilder: (context, index) {
+                                        return ReviewWidget(
+                                            review: StaticVariables
+                                                .reviews![index]);
+                                      })
+                                  : Text(
+                                      "Savor the memories. Start reviewing!",
+                                      style: TextStyle(
+                                        fontFamily: 'Quicksand',
+                                        fontSize: 18,
+                                        color: HexColor("B22222"),
+                                      ),
+                                    ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

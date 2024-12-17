@@ -33,6 +33,7 @@ dependencies:
 
 
   cupertino_icons: ^1.0.8
+  icon_decoration: any
   hexcolor: ^3.0.1
   email_validator: ^2.0.1
   simple_shadow: ^0.3.1

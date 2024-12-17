@@ -12,7 +12,6 @@ class SavedView extends StatefulWidget {
 }
 
 class _MySavedState extends State<SavedView> {
-
   var _numLikedRestaurants = StaticVariables.likedRestaurants!.length;
 
   @override
@@ -42,34 +41,32 @@ class _MySavedState extends State<SavedView> {
                     itemCount: _numLikedRestaurants,
                     itemBuilder: (context, index) {
                       return SavedRestaurantWidget(
-                          restaurant:
-                              StaticVariables.likedRestaurants![index]);
+                          restaurant: StaticVariables.likedRestaurants![index]);
                     })
                 : Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Image.asset(
-                  'assets/images/empty.png',
-                  height: 400,
-                  width: 400,
-                  fit: BoxFit.cover,
-                ),
-                Padding(
-                  padding:
-                  EdgeInsets.symmetric(horizontal: 35),
-                  child: Text(
-                    'Hungry for something new? \n  Swipe to fill your plate!',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: 'Quicksand',
-                      fontSize: 22,
-                      color: HexColor("B22222"),
-                      fontWeight: FontWeight.bold,
-                    ),
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        'assets/images/empty.png',
+                        height: 400,
+                        width: 400,
+                        fit: BoxFit.cover,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 35),
+                        child: Text(
+                          'Hungry for something new? \n  Swipe to fill your plate!',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Quicksand',
+                            fontSize: 22,
+                            color: HexColor("B22222"),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
           ),
         ),
       ),
