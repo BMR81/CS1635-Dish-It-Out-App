@@ -67,7 +67,7 @@ class _MyProfileState extends State<ProfileView> {
                     );
                   },
                   child: const Text(
-                    'Update Favorite Dishes',
+                    'Change dish preferences',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white,
@@ -253,10 +253,10 @@ class _MyProfileState extends State<ProfileView> {
                                       itemCount:
                                           StaticVariables.reviews!.length,
                                       itemBuilder: (context, index) {
-                                        return ReviewWidget(
-                                            review: StaticVariables
-                                                .reviews![index]);
-                                      })
+                                        final orderReviews = StaticVariables.reviews!.reversed.toList();
+                                        return ReviewWidget(review: orderReviews[index]);
+                                      },
+                                )
                                   : Text(
                                       "Savor the memories. Start reviewing!",
                                       style: TextStyle(
