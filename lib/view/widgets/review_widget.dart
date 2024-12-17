@@ -68,7 +68,7 @@ class _MyReviewState extends State<ReviewWidget> {
                     padding: EdgeInsets.symmetric(horizontal: 5),
                     icon: Icon(Icons.info_outline),
                     iconSize: 30,
-                    color: Colors.white,
+                    color: HexColor("B22222"),
                     onPressed: () {
                       Navigator.push(
                           context,
