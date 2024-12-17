@@ -20,7 +20,7 @@ class DetailsView extends StatefulWidget {
 }
 
 class _MyDetailsState extends State<DetailsView> {
-  Color _firstStar = Colors.yellow;
+  Color _firstStar = HexColor("#B22222");
   Color _secondStar = Colors.white;
   Color _thirdStar = Colors.white;
   Color _fourthStar = Colors.white;
@@ -42,6 +42,7 @@ class _MyDetailsState extends State<DetailsView> {
               IconButton(
                 icon: Icon(Icons.arrow_back),
                 iconSize: 50,
+                color: HexColor("#B22222"),
                 padding: EdgeInsets.only(top: 60),
                 onPressed: () {
                   Navigator.pop(
@@ -62,14 +63,15 @@ class _MyDetailsState extends State<DetailsView> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 10),
+                padding: EdgeInsets.only(top: 10, left: 10),
                 child: Text(
                   widget.restaurant.name.toString(),
                   textAlign: TextAlign.left,
                   style: TextStyle(
+                      color: HexColor("#B22222"),
                       fontFamily: 'Quicksand',
                       fontSize: 25,
-                      fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.w800),
                 ),
               ),
               Row(
@@ -79,14 +81,14 @@ class _MyDetailsState extends State<DetailsView> {
                     child: Text(
                       widget.restaurant.rating.toString(),
                       textAlign: TextAlign.left,
-                      style: TextStyle(fontFamily: 'Quicksand', fontSize: 18),
+                      style: TextStyle(fontFamily: 'Quicksand', fontSize: 18, fontWeight: FontWeight.w600,),
                     ),
                   ),
                   Stack(
                     children: [
                       Icon(
                         Icons.star,
-                        color: Colors.yellow,
+                        color: HexColor("#B22222"),
                       ),
                       Icon(
                         Icons.star_border,
@@ -102,7 +104,7 @@ class _MyDetailsState extends State<DetailsView> {
                       style: TextStyle(
                         fontFamily: 'Quicksand',
                         fontSize: 18,
-                        fontWeight: FontWeight.w600,
+                        //fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
@@ -147,21 +149,35 @@ class _MyDetailsState extends State<DetailsView> {
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       fontFamily: 'Quicksand',
-                      fontSize: 20,
+                      color: HexColor("#B22222"),
+                      fontSize: 25,
                       fontWeight: FontWeight.bold),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 15),
+                padding: EdgeInsets.only(top: 10, left: 15),
                 child: Column(
                   children: [
-                    Text(
-                      widget.restaurant.dish.toString().toUpperCase(),
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          fontFamily: 'Quicksand',
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
+                    Padding(
+                      padding: EdgeInsets.only(top: 0, left: 0),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        decoration: BoxDecoration(
+                          color: HexColor("#B22222"),
+                          borderRadius: BorderRadius.circular(30),
+                          border: Border.all(color: Colors.black, width: 2),
+                        ),
+                        child: Text(
+                          widget.restaurant.dish.toString().toUpperCase(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Quicksand',
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -202,10 +218,12 @@ class _MyDetailsState extends State<DetailsView> {
                               return StatefulBuilder(
                                   builder: (context, StateSetter setState) {
                                 return AlertDialog(
+                                  backgroundColor: HexColor("fff4eb"),
                                   title: Text(
                                       'Review for ${widget.restaurant.name.toString()}',
                                       style: TextStyle(
                                         fontFamily: 'Quicksand',
+                                        fontWeight: FontWeight.bold,
                                       ),
                                   ),
                                   content: Container(
@@ -219,6 +237,7 @@ class _MyDetailsState extends State<DetailsView> {
                                               style: TextStyle(
                                                 fontFamily: 'Quicksand',
                                                 fontSize: 16,
+                                                fontWeight: FontWeight.bold,
                                               ),
                                             ),
                                             Padding(
@@ -236,7 +255,7 @@ class _MyDetailsState extends State<DetailsView> {
                                                 ),
                                                 onTap: () {
                                                   setState(() {
-                                                    _firstStar = Colors.yellow;
+                                                    _firstStar = HexColor("#B22222");
                                                     _secondStar = Colors.white;
                                                     _thirdStar = Colors.white;
                                                     _fourthStar = Colors.white;
@@ -262,8 +281,8 @@ class _MyDetailsState extends State<DetailsView> {
                                                 ),
                                                 onTap: () {
                                                   setState(() {
-                                                    _firstStar = Colors.yellow;
-                                                    _secondStar = Colors.yellow;
+                                                    _firstStar = HexColor("#B22222");
+                                                    _secondStar = HexColor("#B22222");
                                                     _thirdStar = Colors.white;
                                                     _fourthStar = Colors.white;
                                                     _fifthStar = Colors.white;
@@ -288,9 +307,9 @@ class _MyDetailsState extends State<DetailsView> {
                                                 ),
                                                 onTap: () {
                                                   setState(() {
-                                                    _firstStar = Colors.yellow;
-                                                    _secondStar = Colors.yellow;
-                                                    _thirdStar = Colors.yellow;
+                                                    _firstStar = HexColor("#B22222");
+                                                    _secondStar = HexColor("#B22222");
+                                                    _thirdStar = HexColor("#B22222");
                                                     _fourthStar = Colors.white;
                                                     _fifthStar = Colors.white;
 
@@ -314,10 +333,10 @@ class _MyDetailsState extends State<DetailsView> {
                                                 ),
                                                 onTap: () {
                                                   setState(() {
-                                                    _firstStar = Colors.yellow;
-                                                    _secondStar = Colors.yellow;
-                                                    _thirdStar = Colors.yellow;
-                                                    _fourthStar = Colors.yellow;
+                                                    _firstStar = HexColor("#B22222");
+                                                    _secondStar = HexColor("#B22222");
+                                                    _thirdStar = HexColor("#B22222");
+                                                    _fourthStar = HexColor("#B22222");
                                                     _fifthStar = Colors.white;
 
                                                     _newReview.rating = 4;
@@ -340,11 +359,11 @@ class _MyDetailsState extends State<DetailsView> {
                                                 ),
                                                 onTap: () {
                                                   setState(() {
-                                                    _firstStar = Colors.yellow;
-                                                    _secondStar = Colors.yellow;
-                                                    _thirdStar = Colors.yellow;
-                                                    _fourthStar = Colors.yellow;
-                                                    _fifthStar = Colors.yellow;
+                                                    _firstStar = HexColor("#B22222");
+                                                    _secondStar = HexColor("#B22222");
+                                                    _thirdStar = HexColor("#B22222");
+                                                    _fourthStar = HexColor("#B22222");
+                                                    _fifthStar = HexColor("#B22222");
 
                                                     _newReview.rating = 5;
                                                   });
@@ -449,6 +468,8 @@ class _MyDetailsState extends State<DetailsView> {
                                                     child: const Text(
                                                       'Submit Review',
                                                       style: TextStyle(
+                                                        fontFamily: 'Quicksand',
+                                                        fontWeight: FontWeight.bold,
                                                         fontSize: 18,
                                                         color: Colors.white,
                                                       ),
@@ -489,22 +510,39 @@ class _MyDetailsState extends State<DetailsView> {
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 5),
                   decoration: BoxDecoration(
+                    color: HexColor("#fff4eb"),
                     border: Border.all(
                       color: Colors.black,
                     ),
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   child: Column(
                     children: [
                       Row(
                         children: [
-                          Text(
-                            'chill_guy tried: ',
-                            style: TextStyle(
-                              fontFamily: 'Quicksand',
-                              fontSize: 16,
+                          Text.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'chill_guy',
+                                  style: TextStyle(
+                                    fontFamily: 'Quicksand',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ' tried: ',
+                                  style: TextStyle(
+                                    fontFamily: 'Quicksand',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
+
                           Text(
                             widget.restaurant.dish!.toUpperCase().toString(),
                             style: TextStyle(
@@ -540,7 +578,7 @@ class _MyDetailsState extends State<DetailsView> {
                                           children: [
                                             Icon(
                                               Icons.star,
-                                              color: Colors.yellow,
+                                              color: HexColor("#B22222"),
                                             ),
                                             Icon(
                                               Icons.star_border,
@@ -552,7 +590,7 @@ class _MyDetailsState extends State<DetailsView> {
                                           children: [
                                             Icon(
                                               Icons.star,
-                                              color: Colors.yellow,
+                                              color: HexColor("#B22222"),
                                             ),
                                             Icon(
                                               Icons.star_border,
@@ -564,7 +602,7 @@ class _MyDetailsState extends State<DetailsView> {
                                           children: [
                                             Icon(
                                               Icons.star,
-                                              color: Colors.yellow,
+                                              color: HexColor("#B22222"),
                                             ),
                                             Icon(
                                               Icons.star_border,
@@ -576,7 +614,7 @@ class _MyDetailsState extends State<DetailsView> {
                                           children: [
                                             Icon(
                                               Icons.star,
-                                              color: Colors.yellow,
+                                              color: HexColor("#B22222"),
                                             ),
                                             Icon(
                                               Icons.star_border,
@@ -588,7 +626,7 @@ class _MyDetailsState extends State<DetailsView> {
                                           children: [
                                             Icon(
                                               Icons.star,
-                                              color: Colors.yellow,
+                                              color: HexColor("#B22222"),
                                             ),
                                             Icon(
                                               Icons.star_border,
@@ -622,20 +660,36 @@ class _MyDetailsState extends State<DetailsView> {
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 5),
                   decoration: BoxDecoration(
+                    color: HexColor("#fff4eb"),
                     border: Border.all(
                       color: Colors.black,
                     ),
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   child: Column(
                     children: [
                       Row(
                         children: [
-                          Text(
-                            'chill_individual tried: ',
-                            style: TextStyle(
-                              fontFamily: 'Quicksand',
-                              fontSize: 16,
+                          Text.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'chill_individual',
+                                  style: TextStyle(
+                                    fontFamily: 'Quicksand',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ' tried: ',
+                                  style: TextStyle(
+                                    fontFamily: 'Quicksand',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Text(
@@ -673,7 +727,7 @@ class _MyDetailsState extends State<DetailsView> {
                                           children: [
                                             Icon(
                                               Icons.star,
-                                              color: Colors.yellow,
+                                              color: HexColor("#B22222"),
                                             ),
                                             Icon(
                                               Icons.star_border,
@@ -685,7 +739,7 @@ class _MyDetailsState extends State<DetailsView> {
                                           children: [
                                             Icon(
                                               Icons.star,
-                                              color: Colors.yellow,
+                                              color: HexColor("#B22222"),
                                             ),
                                             Icon(
                                               Icons.star_border,
@@ -697,7 +751,7 @@ class _MyDetailsState extends State<DetailsView> {
                                           children: [
                                             Icon(
                                               Icons.star,
-                                              color: Colors.yellow,
+                                              color: HexColor("#B22222"),
                                             ),
                                             Icon(
                                               Icons.star_border,
@@ -731,20 +785,36 @@ class _MyDetailsState extends State<DetailsView> {
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 5),
                   decoration: BoxDecoration(
+                    color: HexColor("#fff4eb"),
                     border: Border.all(
                       color: Colors.black,
                     ),
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   child: Column(
                     children: [
                       Row(
                         children: [
-                          Text(
-                            'chill_girl tried: ',
-                            style: TextStyle(
-                              fontFamily: 'Quicksand',
-                              fontSize: 16,
+                          Text.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'chill_girl',
+                                  style: TextStyle(
+                                    fontFamily: 'Quicksand',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ' tried: ',
+                                  style: TextStyle(
+                                    fontFamily: 'Quicksand',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Text(
@@ -782,7 +852,7 @@ class _MyDetailsState extends State<DetailsView> {
                                           children: [
                                             Icon(
                                               Icons.star,
-                                              color: Colors.yellow,
+                                              color: HexColor("#B22222"),
                                             ),
                                             Icon(
                                               Icons.star_border,

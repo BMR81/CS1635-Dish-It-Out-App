@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../../model/review_model.dart';
 import '../details_view.dart';
@@ -20,8 +21,9 @@ class _MyReviewState extends State<ReviewWidget> {
   Widget build(BuildContext context) => Padding(
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 4),
+          padding: EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
+            color: HexColor("#fff4eb"),
             border: Border.all(
               color: Colors.black,
             ),
@@ -31,18 +33,33 @@ class _MyReviewState extends State<ReviewWidget> {
             children: [
               Row(
                 children: [
-                  Text(
-                    'You visited: ',
-                    style: TextStyle(
-                      fontFamily: 'Quicksand',
-                      fontSize: 16,
+                  Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'You',
+                          style: TextStyle(
+                            fontFamily: 'Quicksand',
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextSpan(
+                          text: ' visited: ',
+                          style: TextStyle(
+                            fontFamily: 'Quicksand',
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Text(
                     widget.review.restaurant!.name!.toString(),
                     style: TextStyle(
                       fontFamily: 'Quicksand',
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -51,6 +68,7 @@ class _MyReviewState extends State<ReviewWidget> {
                     padding: EdgeInsets.symmetric(horizontal: 5),
                     icon: Icon(Icons.info_outline),
                     iconSize: 30,
+                    color: Colors.white,
                     onPressed: () {
                       Navigator.push(
                           context,
@@ -64,14 +82,6 @@ class _MyReviewState extends State<ReviewWidget> {
               ),
               Row(
                 children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Image.asset(
-                      'assets/images/${widget.review.restaurant!.dish.toString()}.png',
-                      height: 100,
-                      width: 100,
-                    ),
-                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     child: Container(
@@ -80,16 +90,16 @@ class _MyReviewState extends State<ReviewWidget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(vertical: 2),
+                            child: _buildStarsRow(widget.review.rating!),
+                          ),
                           Text(
                             '${widget.review.restaurant!.dish!.toUpperCase().toString()}',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 10),
-                            child: _buildStarsRow(widget.review.rating!),
                           ),
                           Text(
                             '\"${widget.review.body.toString()}\"',
@@ -99,6 +109,7 @@ class _MyReviewState extends State<ReviewWidget> {
                               fontSize: 16,
                             ),
                           ),
+                          SizedBox(height: 8),
                         ],
                       ),
                     ),
@@ -119,7 +130,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -136,7 +147,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -148,7 +159,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -165,7 +176,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -177,7 +188,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -189,7 +200,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -206,7 +217,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -218,7 +229,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -230,7 +241,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -242,7 +253,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -259,7 +270,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -271,7 +282,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -283,7 +294,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -295,7 +306,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -307,7 +318,7 @@ Row _buildStarsRow(int numStars) {
           children: [
             Icon(
               Icons.star,
-              color: Colors.yellow,
+              color: HexColor("#B22222"),
             ),
             Icon(
               Icons.star_border,
@@ -325,7 +336,7 @@ Row _buildStarsRow(int numStars) {
         children: [
           Icon(
             Icons.star,
-            color: Colors.yellow,
+            color: HexColor("#B22222"),
           ),
           Icon(
             Icons.star_border,
