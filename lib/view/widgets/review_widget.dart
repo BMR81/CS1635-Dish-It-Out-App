@@ -25,7 +25,7 @@ class _MyReviewState extends State<ReviewWidget> {
             border: Border.all(
               color: Colors.black,
             ),
-            borderRadius: BorderRadius.all(Radius.circular(5)),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
           child: Column(
             children: [
@@ -39,9 +39,10 @@ class _MyReviewState extends State<ReviewWidget> {
                     ),
                   ),
                   Text(
-                    widget.review.restaurant!.name!.toUpperCase().toString(),
+                    widget.review.restaurant!.name!.toString(),
                     style: TextStyle(
-                      fontSize: 16,
+                      fontFamily: 'Quicksand',
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -80,9 +81,10 @@ class _MyReviewState extends State<ReviewWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '(${widget.review.restaurant!.dish!.toUpperCase().toString()})',
+                            '${widget.review.restaurant!.dish!.toUpperCase().toString()}',
                             style: TextStyle(
                               fontSize: 16,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                           Padding(

@@ -66,12 +66,13 @@ class _MyHomeState extends State<HomeView> {
                       restaurant: StaticVariables.restaurants![0],
                     )
                   : Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 100),
+                      padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 50),
                       child: Text(
-                        'Dish it out another time!',
+                        textAlign: TextAlign.center,
+                        'Dish it out \n another time!',
                         style: TextStyle(
                           fontFamily: 'Quicksand',
-                          fontSize: 30,
+                          fontSize: 35,
                           color: HexColor("B22222"),
                           fontWeight: FontWeight.bold,
                         ),

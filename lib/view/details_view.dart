@@ -203,7 +203,11 @@ class _MyDetailsState extends State<DetailsView> {
                                   builder: (context, StateSetter setState) {
                                 return AlertDialog(
                                   title: Text(
-                                      'Review for ${widget.restaurant.name.toString()}'),
+                                      'Review for ${widget.restaurant.name.toString()}',
+                                      style: TextStyle(
+                                        fontFamily: 'Quicksand',
+                                      ),
+                                  ),
                                   content: Container(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -397,7 +401,7 @@ class _MyDetailsState extends State<DetailsView> {
                                                                 .circular(10),
                                                       ),
                                                       elevation:
-                                                          5, // Elevation for shadow effect
+                                                          5,
                                                     ).copyWith(
                                                       backgroundColor:
                                                           WidgetStateProperty
