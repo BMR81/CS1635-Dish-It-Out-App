@@ -24,7 +24,7 @@ class _MySavedState extends State<SavedView> {
             toolbarHeight: 100,
             centerTitle: true,
             title: Padding(
-              padding: EdgeInsets.only(top: 10),
+              padding: EdgeInsets.only(top: 30),
               child: Text(
                 'Saved Restaurants',
                 style: TextStyle(

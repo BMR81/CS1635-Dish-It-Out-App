@@ -384,9 +384,9 @@ class _MyDetailsState extends State<DetailsView> {
                                                   keyboardType:
                                                       TextInputType.text,
                                                   decoration: InputDecoration(
-                                                    labelText: 'Review Body',
+                                                    labelText: 'Review',
                                                     hintText:
-                                                        'Enter body of review',
+                                                        'Dish out your thoughts!',
                                                     fillColor: Colors.white,
                                                     filled: true,
                                                   ),
