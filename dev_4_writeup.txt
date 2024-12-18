@@ -1,0 +1,36 @@
+﻿Dish It Out DEV-4: Beta Prototype
+Set-Up Instructions
+IDE: Android Studio
+Preferred Device Emulator:
+*  Android: Version 8.0 (API 26) or higher.
+Login Credentials
+To get a firsthand experience of the app, you can sign up and explore it yourself. However, if you’re short on time, we’ve also provided two test user accounts with pre-set dish preferences for you to explore. Below is the login information for both test users:
+* User 1
+   * Username: test1
+   * Password: test1
+* User 2
+   * Username: test2
+   * Password: test2
+We have functions that will validate existing users, hide/unhide passwords, and error messages to indicate if you either put in the wrong username or password or left either field empty.
+App Review
+Original design key tasks
+* Set dish preferences with unique profile creation
+* Discover new versions of your favorite dish by discovering new restaurants
+* Compete with peers in a friendly competition on the leaderboard to encourage exploration
+Beta key tasks
+* Set dish preferences with unique profile creation
+* Discover new versions of your favorite dish by discovering new restaurants
+* View and compose reviews that keep a log of past dishes you’ve tried
+Changes in Beta Prototype
+Based on feedback from consultants and our TA, we changed our focus to further emphasize the app’s core functionality: discovering new restaurants and dishes. This resulted in the following changes to streamline the user experience and align the features with user needs:
+1. Removal of the Leaderboard
+We decided to eliminate the leaderboard feature to create a more personalized and user-centric experience. Instead of focusing on competition, we prioritized an experience that focuses on exploration and allows users to maintain a personal log of their experiences.
+2. Simplified User Interface
+To improve usability and reduce visual clutter, we removed the icons originally placed at the top of the home view. This simplification ensures users can focus on the app’s primary functionality. The bottom navigation bar also reflects on this simplicity.
+3. Added Preference Update Option
+After receiving feedback from our consultants, we implemented the ability for users to update their dish preferences. This feature was initially overlooked in the MVP but was recognized as essential, as users’ tastes and dining preferences naturally evolve over time.
+4. Introduction of a Restaurant Review System
+A new review system was added as an integral part of the app’s core functionality. Users can now rate restaurants, write reviews, and submit their experiences. These reviews are stored as part of the user profile, creating a personalized log of visited restaurants and dishes. Reviews are displayed as custom widgets within the profile, providing users with an organized and visually appealing summary of their dining journey.
+Takeaways
+Moving forward, we plan to enhance the app further by providing more tools and features. Some of these features may include the search function to find more specific places with your favorite dishes easily, as well as a randomization option to inspire users to try new options in dish categories that are related. 
+One challenge we encountered was managing the sheer variety of dishes and restaurants available. Addressing this complexity will require thoughtful solutions to ensure the app continues to deliver a seamless and engaging experience for users. We scaled a lot down to really hone in on the app’s MVP, which we believe serves its primary purpose.
