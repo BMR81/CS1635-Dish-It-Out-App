@@ -2,6 +2,8 @@
 
 # Set-Up Instructions
 IDE: Android Studio
+
+
 Preferred Device Emulator:
  Android: Version 8.0 (API 26) or higher.
 # Login Credentials
